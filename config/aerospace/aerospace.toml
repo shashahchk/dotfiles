@@ -60,11 +60,10 @@ S = '^27W'
 T = '^27W'
 V = '^27W'
 
-
 [gaps]
 inner.horizontal = 8
-inner.vertical = 8
-outer.top = [{ monitor."main" = 10 }, 10]
+inner.vertical = 0
+outer.top = [{ monitor."main" = 8}, 8]
 outer.left = 0
 outer.bottom = 0
 outer.right = 0
