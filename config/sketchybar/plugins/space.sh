@@ -67,10 +67,10 @@ esac
 source "$CONFIG_DIR/colors.sh"
 
 # AEROSAPCE_WORKSPACE_FOCUSED_MONITOR=$(aerospace list-workspaces --monitor focused --empty no)
-AEROSPACE_EMPTY_WORKESPACES=$(aerospace list-workspaces --monitor focused --empty)
+# AEROSPACE_EMPTY_WORKESPACES=$(aerospace list-workspaces --monitor focused --empty)
 
 reload_workspace_icon() {
-	echo "reload workspace icon"
+	echo "reload workspace icon" "$@"
   # echo reload_workspace_icon "$@" >> ~/aaaa
   apps=$(aerospace list-windows --workspace "$@" | awk -F'|' '{gsub(/^ *| *$/, "", $2); print $2}')
 
@@ -90,6 +90,7 @@ if [ "$SENDER" = "aerospace_workspace_change" ]; then
 
 	if [ "$1" = "$FOCUSED_WORKSPACE" ]; then
 		echo "setting background border color"
+    reload_workspace_icon "$FOCUSED_WORKSPACE"
 		sketchybar --set $NAME label.highlight=true \
 		    icon.highlight=true \
 		    background.border_color=$GREY
@@ -98,8 +99,8 @@ if [ "$SENDER" = "aerospace_workspace_change" ]; then
 		    icon.highlight=false \
 		    background.border_color=$BACKGROUND_2
 	fi
-  # reload_workspace_icon "$AEROSPACE_PREV_WORKSPACE"
-  # reload_workspace_icon "$AEROSPACE_FOCUSED_WORKSPACE"
+  reload_workspace_icon "$PREV_FOCUSED_WORKSPACE"
+  reload_workspace_icon "$FOCUSED_WORKSPACE"
 
   # AEROSPACE_FOCUSED_MONITOR=$(aerospace list-monitors --focused | awk '{print $1}')
   # ## focused 된 모니터에 space 상태 보이게 설정
