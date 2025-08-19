@@ -1,15 +1,18 @@
 #!/bin/sh
 
 FOCUSED_WORKSPACE=$(aerospace list-workspaces --focused)
+source "$CONFIG_DIR/helpers/constants.sh"
 
 for monitor in $(aerospace list-monitors | awk '{print $1}'); do
   for ws in $(aerospace list-workspaces --monitor $monitor); do
    EMPTY_WORKSPACES=$(aerospace list-workspaces --monitor $monitor --empty)
    display="$monitor"
+
+   echo "initializing ws $ws on monitor $monitor" >> $LOG_FILE
+
    if echo "$EMPTY_WORKSPACES" | grep -q "$ws"; then
       display=0
     fi
-
     BACKGROUND_BORDER_COLOR=$BACKGROUND_2
     echo "focused aerospace workspace" $(aerospace list-workspaces --focused)
     if [ "$ws" = "$FOCUSED_WORKSPACE" ]; then
@@ -37,7 +40,7 @@ for monitor in $(aerospace list-monitors | awk '{print $1}'); do
 
     sketchybar --add space space.$sid left \
                --set space.$sid "${space[@]}" \
-                --subscribe space.$sid mouse.clicked aerospace_workspace_change space_windows_change
+                --subscribe space.$sid mouse.clicked 
 
 
     icon_strip=$(source "$CONFIG_DIR/helpers/get_space_icons.sh" "$ws")
@@ -45,3 +48,19 @@ for monitor in $(aerospace list-monitors | awk '{print $1}'); do
     sketchybar --set space.$sid label="$icon_strip"
   done
 done
+
+
+arrow=(
+  icon=􀆊
+  icon.font="$FONT:Heavy:16.0"
+  padding_left=10
+  padding_right=8
+  label.drawing=off
+  display=active
+  icon.color=$WHITE
+  script="$PLUGIN_DIR/space_windows.sh"
+)
+
+sketchybar --add item arrow left               \
+           --set arrow "${arrow[@]}"   \
+           --subscribe arrow aerospace_workspace_change space_windows_change
