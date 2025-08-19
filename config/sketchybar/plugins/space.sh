@@ -48,12 +48,10 @@ mouse_clicked() {
 }
 
 # echo plugin_space.sh $SENDER >> ~/aaaa
-case "$SENDER" in
-  "mouse.clicked") mouse_clicked
-  ;;
-  *) 
-  ;;
-esac
+
+  if [ "$SENDER" = "mouse.clicked" ]; then
+    mouse_clicked
+  fi
 
 # windows workspace
 # echo AEROSPACE_PREV_WORKSPACE: $AEROSPACE_PREV_WORKSPACE, \ AEROSPACE_FOCUSED_WORKSPACE: $AEROSPACE_FOCUSED_WORKSPACE \
@@ -66,28 +64,15 @@ esac
 
 source "$CONFIG_DIR/colors.sh"
 
-# AEROSAPCE_WORKSPACE_FOCUSED_MONITOR=$(aerospace list-workspaces --monitor focused --empty no)
-# AEROSPACE_EMPTY_WORKESPACES=$(aerospace list-workspaces --monitor focused --empty)
-
 reload_workspace_icon() {
-	echo "reload workspace icon" "$@"
-  # echo reload_workspace_icon "$@" >> ~/aaaa
+	echo "reload workspace icon" "$@" >> ~/tmp/sketchybar.log
   apps=$(aerospace list-windows --workspace "$@" | awk -F'|' '{gsub(/^ *| *$/, "", $2); print $2}')
+  icon_strip=$(source "$CONFIG_DIR/helpers/get_space_icons.sh")
 
-  icon_strip=" "
-  if [ "${apps}" != "" ]; then
-    while read -r app
-    do
-      icon_strip+=" $($CONFIG_DIR/plugins/icon_map.sh "$app")"
-    done <<< "${apps}"
-  else
-    icon_strip=" —"
-  fi
-  # sketchybar --animate sin 10 --set space.$@ label="$icon_strip"
+  sketchybar --set space.$@ label="$icon_strip"
 }
 
 if [ "$SENDER" = "aerospace_workspace_change" ]; then
-
 	if [ "$1" = "$FOCUSED_WORKSPACE" ]; then
 		echo "setting background border color"
     reload_workspace_icon "$FOCUSED_WORKSPACE"
