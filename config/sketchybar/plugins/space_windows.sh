@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
- 
-echo AEROSPACE_PREV_WORKSPACE: $AEROSPACE_PREV_WORKSPACE, \
- AEROSPACE_FOCUSED_WORKSPACE: $AEROSPACE_FOCUSED_WORKSPACE \
+echo "space_windows.sh" 
+echo AEROSPACE_PREV_WORKSPACE: $AEROSPACE_PREV_WORKSPACE, \ AEROSPACE_FOCUSED_WORKSPACE: $AEROSPACE_FOCUSED_WORKSPACE \
  SELECTED: $SELECTED \
  BG2: $BG2 \
  INFO: $INFO \
@@ -16,6 +15,7 @@ AEROSAPCE_WORKSPACE_FOCUSED_MONITOR=$(aerospace list-workspaces --monitor focuse
 AEROSPACE_EMPTY_WORKESPACE=$(aerospace list-workspaces --monitor focused --empty)
 
 reload_workspace_icon() {
+	echo "reload workspace icon"
   # echo reload_workspace_icon "$@" >> ~/aaaa
   apps=$(aerospace list-windows --workspace "$@" | awk -F'|' '{gsub(/^ *| *$/, "", $2); print $2}')
 

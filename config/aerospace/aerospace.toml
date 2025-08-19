@@ -19,12 +19,6 @@ after-startup-command = [
     # 'exec-and-forget /opt/homebrew/opt/borders/bin/borders active_color="glow(0xd943ff64)" inactive_color=0x20494d64 width=8.0'
 ]
 
-exec-on-workspace-change = [
-    '/bin/bash',
-    '-c',
-    '/opt/homebrew/opt/sketchybar/bin/sketchybar --trigger aerospace_workspace_change AEROSPACE_FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE AEROSPACE_PREV_WORKSPACE=$AEROSPACE_PREV_WORKSPACE',
-]
-
 # Start AeroSpace at login
 start-at-login = true
 
@@ -52,6 +46,10 @@ key-mapping.preset = 'qwerty'
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 on-focus-changed = ['move-mouse window-lazy-center']
 
+# Sketchybar-- Notify Sketchybar about workspace change
+exec-on-workspace-change = ['/bin/bash', '-c',
+  '/usr/local/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE >> /tmp/aero.log 2>&1; echo "exit_code=$?" >> /tmp/aero.log'
+]
 # Gaps between windows (inner-*) and between monitor edges (outer-*).
 # Possible values:
 # - Constant:     gaps.outer.top = 8
@@ -101,12 +99,12 @@ PATH = '/opt/homebrew/bin:/opt/homebrew/sbin:${PATH}'
 # - Arrows.         left, down, up, right
 
 # All possible modifiers: cmd, alt, ctrl, shift
-
 # All possible commands: https://nikitabobko.github.io/AeroSpace/commands
 
 # You can uncomment this line to open up terminal with alt + enter shortcut
 # See: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
 # alt-enter = 'exec-and-forget open -n /System/Applications/Utilities/Terminal.app'
+
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
 alt-slash = 'layout tiles horizontal vertical'
@@ -198,10 +196,6 @@ alt-shift-r = ['exec-and-forget /opt/homebrew/bin/sketchybar --reload']
 [[on-window-detected]]
 if.app-id ='com.google.Chrome'
 run = ['move-node-to-workspace 2']
-
-[[on-window-detected]]
-if.app-id ='com.mitchellh.ghostty'
-run = ['move-node-to-workspace 3']
 
 # Communication
 [[on-window-detected]]

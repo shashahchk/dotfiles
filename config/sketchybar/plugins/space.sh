@@ -1,7 +1,18 @@
 #!/bin/bash
 
 #echo space.sh $'FOCUSED_WORKSPACE': $FOCUSED_WORKSPACE, $'SELECTED': $SELECTED, NAME: $NAME, SENDER: $SENDER  >> ~/aaaa
+echo "focused workspace" $FOCUSED_WORKSPACE
 
+	if [ "$1" = "$FOCUSED_WORKSPACE" ]; then
+		echo "setting background border color"
+		sketchybar --set $NAME label.highlight=true \
+		    icon.highlight=true \
+		    background.border_color=$GREY
+	else
+	    sketchybar --set $NAME label.highlight=false \
+		    icon.highlight=false \
+		    background.border_color=$BACKGROUND_2
+	fi
 update() {
   # 처음 시작에만 작동하기 위해서
   # 현재 forced, space_change 이벤트가 동시에 발생하고 있다.

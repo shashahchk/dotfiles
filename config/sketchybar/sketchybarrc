@@ -2,7 +2,7 @@
 
 source "$CONFIG_DIR/colors.sh" # Loads all defined colors
 source "$CONFIG_DIR/icons.sh" # Loads all defined icons
-
+sketchybar --add event aerospace_workspace_change
 ITEM_DIR="$CONFIG_DIR/items" # Directory where the items are configured
 PLUGIN_DIR="$CONFIG_DIR/plugins" # Directory where all the plugin scripts are stored
 
@@ -73,11 +73,10 @@ defaults=(
 
 sketchybar --default "${defaults[@]}"
 
-
 # Left
 # source "$ITEM_DIR/apple.sh"
 source "$ITEM_DIR/spaces.sh"
-# source "$ITEM_DIR/front_app.sh"
+source "$ITEM_DIR/front_app.sh"
 #source "$ITEM_DIR/yabai.sh"
 
 # Center
@@ -86,10 +85,10 @@ source "$ITEM_DIR/calendar.sh"
 # source "$ITEM_DIR/media.sh"
 
 # Right
-# source "$ITEM_DIR/input_source.sh"
+source "$ITEM_DIR/input_source.sh"
 source "$ITEM_DIR/battery.sh"
-#source "$ITEM_DIR/brew.sh"
-#source "$ITEM_DIR/github.sh"
+source "$ITEM_DIR/brew.sh"
+source "$ITEM_DIR/github.sh"
 source "$ITEM_DIR/wifi.sh"
 # source "$ITEM_DIR/volume.sh"
 source "$ITEM_DIR/svim.sh"

@@ -6,10 +6,15 @@
 # New space by left clicking separator (>)
 
 sketchybar --add event aerospace_workspace_change
+echo "initial focused window" $FOCUSED_WINDOW
 #echo $(aerospace list-workspaces --monitor 1 --visible no --empty no) >> ~/aaaa
 
 for m in $(aerospace list-monitors | awk '{print $1}'); do
   for i in $(aerospace list-workspaces --monitor $m); do
+    BACKGROUND_BORDER_COLOR=$BACKGROUND_2
+    if ["$i" = echo $(aerospace list-workspaces --focused)]; then
+	    BACKGROUND_BORDER_COLOR=$GREY
+    fi
     sid=$i
     space=(
       space="$sid"
@@ -26,13 +31,13 @@ for m in $(aerospace list-monitors | awk '{print $1}'); do
       label.font="sketchybar-app-font:Regular:16.0"
       label.y_offset=-1
       background.color=$BACKGROUND_1
-      background.border_color=$BACKGROUND_2
-      script="$PLUGIN_DIR/space.sh"
+      background.border_color=$BACKGROUND_BORDER_COLOR
+      script="$PLUGIN_DIR/space.sh $sid"
     )
 
     sketchybar --add space space.$sid left \
                --set space.$sid "${space[@]}" \
-               --subscribe space.$sid mouse.clicked
+                --subscribe space.$sid mouse.clicked aerospace_workspace_change
 
     apps=$(aerospace list-windows --workspace $sid | awk -F'|' '{gsub(/^ *| *$/, "", $2); print $2}')
 
@@ -63,10 +68,8 @@ space_creator=(
   padding_right=8
   label.drawing=off
   display=active
-  #click_script='yabai -m space --create'
-  script="$PLUGIN_DIR/space_windows.sh"
-  #script="$PLUGIN_DIR/aerospace.sh"
   icon.color=$WHITE
+  script="$CONFIG_DIR/plugins/space_windows.sh"
 )
 
 # sketchybar --add item space_creator left               \
@@ -74,7 +77,7 @@ space_creator=(
 #            --subscribe space_creator space_windows_change
 sketchybar --add item space_creator left               \
            --set space_creator "${space_creator[@]}"   \
-           --subscribe space_creator aerospace_workspace_change
+           --subscribe space_creator aerospace_workspace_change \
 
 # sketchybar  --add item change_windows left \
 #             --set change_windows script="$PLUGIN_DIR/change_windows.sh" \
