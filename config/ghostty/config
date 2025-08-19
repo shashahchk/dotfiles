@@ -53,9 +53,11 @@ macos-titlebar-style = tabs
 macos-titlebar-proxy-icon = hidden
 macos-option-as-alt = true
 
+# Appearance
 background-opacity = 0.8
+background-blur-radius = 5
 
-# Cursor style - updated for hollow red box
+# --Cursor style--
 cursor-style = block
 cursor-style-blink = true
 cursor-color = #FFF566

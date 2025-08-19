@@ -139,6 +139,9 @@ alt-7 = 'workspace 7'
 alt-8 = 'workspace 8'
 alt-9 = 'workspace 9'
 alt-0 = 'workspace 10'
+alt-c = 'workspace C'
+alt-s = 'workspace S'
+alt-t = 'workspace T'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-1 = ['move-node-to-workspace 1', 'workspace 1']
@@ -151,6 +154,9 @@ alt-shift-7 = ['move-node-to-workspace 7', 'workspace 7']
 alt-shift-8 = ['move-node-to-workspace 8', 'workspace 8']
 alt-shift-9 = ['move-node-to-workspace 9', 'workspace 9']
 alt-shift-0 = ['move-node-to-workspace 10', 'workspace 10']
+alt-shift-c = ['move-node-to-workspace C', 'workspace C']
+alt-shift-s = ['move-node-to-workspace S', 'workspace S']
+alt-shift-t = ['move-node-to-workspace T', 'workspace T']
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = 'workspace-back-and-forth'
@@ -189,35 +195,36 @@ alt-shift-l = ['join-with right', 'mode main']
 
 alt-shift-r = ['exec-and-forget /opt/homebrew/bin/sketchybar --reload']
 
-
-# [[on-window-detected]]
-# if.app-id = 'nl.stickybit.OTP-Manager'
-# run = ['layout floating']
-
-#[[on-window-detected]]
-#if.window-title-regex-substring = '^BIG-IP'
-#run = ['layout floating']
-
-
 [[on-window-detected]]
-if.app-id ='com.mitchellh.ghostty'
+if.app-id ='com.google.Chrome'
 run = ['move-node-to-workspace 2']
 
 [[on-window-detected]]
-if.app-id ='notion.id'
+if.app-id ='com.mitchellh.ghostty'
 run = ['move-node-to-workspace 3']
 
+# Communication
 [[on-window-detected]]
 if.app-id = 'ru.keepcoder.Telegram'
-run = ['move-node-to-workspace 4']
+run = ['move-node-to-workspace C']
 
 [[on-window-detected]]
 if.app-id = 'com.hnc.Discord'
-run = ['move-node-to-workspace 4']
+run = ['move-node-to-workspace C']
+
+# Task management
+[[on-window-detected]]
+if.app-id ='notion.id'
+run = ['move-node-to-workspace T']
+
+#Spotify
+[[on-window-detected]]
+if.app-id ='com.spotify.client'
+run = ['move-node-to-workspace S']
 
 [[on-window-detected]]
 if.app-id = 'com.clickup.desktop-app'
-run = ['move-node-to-workspace 5']
+run = ['move-node-to-workspace 6']
 
 [[on-window-detected]]
 if.app-id = "md.obsidian"
