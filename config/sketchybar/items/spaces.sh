@@ -29,7 +29,7 @@ for m in $(aerospace list-monitors | awk '{print $1}'); do
 
     sketchybar --add space space.$sid left \
                --set space.$sid "${space[@]}" \
-                --subscribe space.$sid mouse.clicked aerospace_workspace_change
+                --subscribe space.$sid mouse.clicked aerospace_workspace_change space_windows_change
 
 
     icon_strip=$(source "$CONFIG_DIR/helpers/get_space_icons.sh" "$i")

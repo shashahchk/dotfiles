@@ -100,3 +100,9 @@ if [ "$SENDER" = "aerospace_workspace_change" ]; then
 
   # sketchybar --set space.$AEROSPACE_FOCUSED_WORKSPACE display=$AEROSPACE_FOCUSED_MONITOR
 fi
+
+if [ "$SENDER" = "space_windows_change" ]; then
+  FOCUSED_WORKSPACE=$(aerospace list-workspaces --focused | awk '{print $1}')
+  echo "space windows change $FOCUSED_WORKSPACE">> $LOG_FILE
+  reload_workspace_icon "$FOCUSED_WORKSPACE"
+fi
