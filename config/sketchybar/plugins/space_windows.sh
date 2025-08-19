@@ -17,17 +17,8 @@ AEROSPACE_EMPTY_WORKESPACE=$(aerospace list-workspaces --monitor focused --empty
 reload_workspace_icon() {
 	echo "reload workspace icon"
   # echo reload_workspace_icon "$@" >> ~/aaaa
-  apps=$(aerospace list-windows --workspace "$@" | awk -F'|' '{gsub(/^ *| *$/, "", $2); print $2}')
 
-  icon_strip=" "
-  if [ "${apps}" != "" ]; then
-    while read -r app
-    do
-      icon_strip+=" $($CONFIG_DIR/plugins/icon_map.sh "$app")"
-    done <<< "${apps}"
-  else
-    icon_strip=" —"
-  fi
+  icon_strip=$(source "$CONFIG_DIR/helpers/get_space_icons.sh")
 
   sketchybar --animate sin 10 --set space.$@ label="$icon_strip"
 }

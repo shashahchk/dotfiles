@@ -31,17 +31,8 @@ for m in $(aerospace list-monitors | awk '{print $1}'); do
                --set space.$sid "${space[@]}" \
                 --subscribe space.$sid mouse.clicked aerospace_workspace_change
 
-    apps=$(aerospace list-windows --workspace $sid | awk -F'|' '{gsub(/^ *| *$/, "", $2); print $2}')
 
-    icon_strip=" "
-    if [ "${apps}" != "" ]; then
-      while read -r app
-      do
-        icon_strip+=" $($CONFIG_DIR/plugins/icon_map.sh "$app")"
-      done <<< "${apps}"
-    else
-      icon_strip=" —"
-    fi
+    icon_strip=$(source "$CONFIG_DIR/helpers/get_space_icons.sh" "$i")
 
     sketchybar --set space.$sid label="$icon_strip"
   done

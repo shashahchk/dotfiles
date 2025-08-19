@@ -1,6 +1,5 @@
 
 #!/bin/bash
-
   apps=$(aerospace list-windows --workspace "$@" | awk -F'|' '{gsub(/^ *| *$/, "", $2); print $2}')
 
   icon_strip=" "
