@@ -1,8 +1,10 @@
 #!/bin/bash
 
-#echo space.sh $'FOCUSED_WORKSPACE': $FOCUSED_WORKSPACE, $'SELECTED': $SELECTED, NAME: $NAME, SENDER: $SENDER  >> ~/aaaa
+source "$CONFIG_DIR/helpers/constants.sh"
+echo space.sh $'FOCUSED_WORKSPACE': $FOCUSED_WORKSPACE, $'SELECTED': $SELECTED, NAME: $NAME, SENDER: $SENDER  >> $LOG_FILE
 # echo "focused workspace" $FOCUSED_WORKSPACE
 
+# most likely don't need this as we'll only use one mac "space"
 # update() {
 #   # 처음 시작에만 작동하기 위해서
 #   # 현재 forced, space_change 이벤트가 동시에 발생하고 있다.
@@ -65,7 +67,7 @@ mouse_clicked() {
 source "$CONFIG_DIR/colors.sh"
 
 reload_workspace_icon() {
-	echo "reload workspace icon" "$@" >> ~/tmp/sketchybar.log
+	echo "reload workspace icon" "$@" >> $LOG_FILE
   apps=$(aerospace list-windows --workspace "$@" | awk -F'|' '{gsub(/^ *| *$/, "", $2); print $2}')
   icon_strip=$(source "$CONFIG_DIR/helpers/get_space_icons.sh")
 
