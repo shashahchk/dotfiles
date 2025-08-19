@@ -1,5 +1,4 @@
 # This is the configuration file for Ghostty.
-#
 # This template file has been automatically created at the following
 # path since Ghostty couldn't find any existing config files on your system:
 #
@@ -49,3 +48,15 @@ keybind = global:cmd+grave_accent=toggle_quick_terminal
 quick-terminal-position = bottom
 command = /usr/local/bin/fish --login --interactive
 
+# macos
+macos-titlebar-style = tabs
+macos-titlebar-proxy-icon = hidden
+macos-option-as-alt = true
+
+background-opacity = 0.8
+
+# Cursor style - updated for hollow red box
+cursor-style = block
+cursor-style-blink = true
+cursor-color = #FFF566
+#cursor-text = background
