@@ -10,7 +10,8 @@ after-login-command = []
 after-startup-command = [
     # JankyBorders has a built-in detection of already running process,
     # so it won't be run twice on AeroSpace restart
-    'exec-and-forget /opt/homebrew/opt/sketchybar/bin/sketchybar',
+	# disabling for now because so buggy :(
+    # 'exec-and-forget /opt/homebrew/opt/sketchybar/bin/sketchybar',
 ]
 
 
@@ -61,9 +62,9 @@ T = '^27W'
 V = '^27W'
 
 [gaps]
-inner.horizontal = 8
-inner.vertical = 8
-outer.top = [{ monitor."main" = 10 }, 10]
+inner.horizontal = 0
+inner.vertical = 0
+outer.top = [{ monitor."main" = 0 }, 0]
 outer.left = 0
 outer.bottom = 0
 outer.right = 0
