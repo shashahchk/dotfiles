@@ -77,6 +77,7 @@ reload_workspace_icon() {
 if [ "$SENDER" = "aerospace_workspace_change" ]; then
 	if [ "$1" = "$FOCUSED_WORKSPACE" ]; then
 		echo "setting background border color"
+    
 		sketchybar --set $NAME label.highlight=true \
 		    icon.highlight=true \
 		    background.border_color=$GREY
@@ -94,9 +95,10 @@ if [ "$SENDER" = "aerospace_workspace_change" ]; then
   #   sketchybar --set space.$i display=$AEROSPACE_FOCUSED_MONITOR
   # done
 
-  # for i in $AEROSPACE_EMPTY_WORKESPACES; do
-  #   sketchybar --set space.$i display=0
-  # done
+  AEROSPACE_EMPTY_WORKSPACES=$(aerospace list-workspaces --monitor focused  --empty | awk '{print $1}')
+  for i in $AEROSPACE_EMPTY_WORKSPACES; do
+    sketchybar --set space.$i display=0
+  done
 
   # sketchybar --set space.$AEROSPACE_FOCUSED_WORKSPACE display=$AEROSPACE_FOCUSED_MONITOR
 fi
