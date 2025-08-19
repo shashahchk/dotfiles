@@ -1,12 +1,7 @@
-# Place a copy of this config to ~/.aerospace.toml
-# After that, you can edit ~/.aerospace.toml to your liking
-
-# It's not neceesary to copy all keys to your config.
-# If the key is missing in your config, "default-config.toml" will serve as a fallback
-
-# You can use it to add commands that run after login to macOS user session.
 # 'start-at-login' needs to be 'true' for 'after-login-command' to work
 # Available commands: https://nikitabobko.github.io/AeroSpace/commands
+# Start AeroSpace at login
+start-at-login = true
 after-login-command = []
 
 # You can use it to add commands that run after AeroSpace startup.
@@ -16,11 +11,8 @@ after-startup-command = [
     # JankyBorders has a built-in detection of already running process,
     # so it won't be run twice on AeroSpace restart
     'exec-and-forget /opt/homebrew/opt/sketchybar/bin/sketchybar',
-    # 'exec-and-forget /opt/homebrew/opt/borders/bin/borders active_color="glow(0xd943ff64)" inactive_color=0x20494d64 width=8.0'
 ]
 
-# Start AeroSpace at login
-start-at-login = true
 
 # Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
 enable-normalization-flatten-containers = false
@@ -63,9 +55,10 @@ exec-on-workspace-change = ['/bin/bash', '-c',
 2 = 'main'
 3 = 'V32UE'
 4 = 'V32UE'
-# 5 = 'V32UE'
-# 6 = '^27W'
-# 7 = '^27W'
+N = 'V32UE'
+S = '^27W'
+T = '^27W'
+V = '^27W'
 
 [gaps]
 inner.horizontal = 8
@@ -132,11 +125,6 @@ alt-1 = 'workspace 1'
 alt-2 = 'workspace 2'
 alt-3 = 'workspace 3'
 alt-4 = 'workspace 4'
-# alt-5 = 'workspace 5'
-# alt-6 = 'workspace 6'
-# alt-7 = 'workspace 7'
-# alt-8 = 'workspace 8'
-# alt-9 = 'workspace 9'
 alt-v = 'workspace V'
 alt-n = 'workspace N'
 alt-s = 'workspace S'
@@ -148,11 +136,6 @@ alt-shift-1 = ['move-node-to-workspace 1', 'workspace 1']
 alt-shift-2 = ['move-node-to-workspace 2', 'workspace 2']
 alt-shift-3 = ['move-node-to-workspace 3', 'workspace 3']
 alt-shift-4 = ['move-node-to-workspace 4', 'workspace 4']
-# alt-shift-5 = ['move-node-to-workspace 5', 'workspace 5']
-# alt-shift-6 = ['move-node-to-workspace 6', 'workspace 6']
-# alt-shift-7 = ['move-node-to-workspace 7', 'workspace 7']
-# alt-shift-8 = ['move-node-to-workspace 8', 'workspace 8']
-# alt-shift-9 = ['move-node-to-workspace 9', 'workspace 9']
 alt-shift-v = ['move-node-to-workspace V', 'workspace V']
 alt-shift-n = ['move-node-to-workspace N', 'workspace N']
 alt-shift-s = ['move-node-to-workspace S', 'workspace S']
@@ -197,18 +180,17 @@ alt-shift-r = ['exec-and-forget /opt/homebrew/bin/sketchybar --reload']
 
 [[on-window-detected]]
 if.app-id ='com.google.Chrome'
-run = ['move-node-to-workspace 2']
+run = ['move-node-to-workspace 1']
 
 # VS-Code
 [[on-window-detected]]
 if.app-id = 'com.microsoft.VSCode'
 run = ['move-node-to-workspace V']
 
-# Telegram (Messaging0
+# Telegram (Messaging)
 [[on-window-detected]]
 if.app-id = 'ru.keepcoder.Telegram'
 run = ['move-node-to-workspace T']
-
  
 [[on-window-detected]]
 if.app-id = 'com.hnc.Discord'
@@ -224,18 +206,18 @@ run = ['move-node-to-workspace N']
 if.app-id ='com.spotify.client'
 run = ['move-node-to-workspace S']
 
-[[on-window-detected]]
-if.app-id = 'com.clickup.desktop-app'
-run = ['move-node-to-workspace 6']
+# [[on-window-detected]]
+# if.app-id = 'com.clickup.desktop-app'
+# run = ['move-node-to-workspace 6']
 
-[[on-window-detected]]
-if.app-id = "md.obsidian"
-run = ['move-node-to-workspace 6']
+# [[on-window-detected]]
+# if.app-id = "md.obsidian"
+# run = ['move-node-to-workspace 6']
 
-[[on-window-detected]]
-if.app-id = 'com.apple.weather'
-run = ['layout floating']
+# [[on-window-detected]]
+# if.app-id = 'com.apple.weather'
+# run = ['layout floating']
 
-[[on-window-detected]]
-if.app-id = 'com.dygmalab.bazecor'
-run = ['layout floating']
+# [[on-window-detected]]
+# if.app-id = 'com.dygmalab.bazecor'
+# run = ['layout floating']
