@@ -59,26 +59,3 @@ for m in $(aerospace list-monitors | awk '{print $1}'); do
   done
   
 done
-
-
-space_creator=(
-  icon=􀆊
-  icon.font="$FONT:Heavy:16.0"
-  padding_left=10
-  padding_right=8
-  label.drawing=off
-  display=active
-  icon.color=$WHITE
-  script="$CONFIG_DIR/plugins/space_windows.sh"
-)
-
-# sketchybar --add item space_creator left               \
-#            --set space_creator "${space_creator[@]}"   \
-#            --subscribe space_creator space_windows_change
-sketchybar --add item space_creator left               \
-           --set space_creator "${space_creator[@]}"   \
-           --subscribe space_creator aerospace_workspace_change \
-
-# sketchybar  --add item change_windows left \
-#             --set change_windows script="$PLUGIN_DIR/change_windows.sh" \
-#             --subscribe change_windows space_changes
