@@ -137,8 +137,8 @@ alt-4 = 'workspace 4'
 # alt-7 = 'workspace 7'
 # alt-8 = 'workspace 8'
 # alt-9 = 'workspace 9'
-alt-c = 'workspace C'
-alt-m = 'workspace M'
+alt-v = 'workspace V'
+alt-n = 'workspace N'
 alt-s = 'workspace S'
 alt-t = 'workspace T'
 
@@ -153,8 +153,8 @@ alt-shift-4 = ['move-node-to-workspace 4', 'workspace 4']
 # alt-shift-7 = ['move-node-to-workspace 7', 'workspace 7']
 # alt-shift-8 = ['move-node-to-workspace 8', 'workspace 8']
 # alt-shift-9 = ['move-node-to-workspace 9', 'workspace 9']
-alt-shift-c = ['move-node-to-workspace C', 'workspace C']
-alt-shift-m = ['move-node-to-workspace M', 'workspace M']
+alt-shift-v = ['move-node-to-workspace V', 'workspace V']
+alt-shift-n = ['move-node-to-workspace N', 'workspace N']
 alt-shift-s = ['move-node-to-workspace S', 'workspace S']
 alt-shift-t = ['move-node-to-workspace T', 'workspace T']
 
@@ -199,27 +199,27 @@ alt-shift-r = ['exec-and-forget /opt/homebrew/bin/sketchybar --reload']
 if.app-id ='com.google.Chrome'
 run = ['move-node-to-workspace 2']
 
-# Code
+# VS-Code
 [[on-window-detected]]
 if.app-id = 'com.microsoft.VSCode'
-run = ['move-node-to-workspace C']
+run = ['move-node-to-workspace V']
 
-# Messaging
+# Telegram (Messaging0
 [[on-window-detected]]
 if.app-id = 'ru.keepcoder.Telegram'
-run = ['move-node-to-workspace M']
+run = ['move-node-to-workspace T']
 
  
 [[on-window-detected]]
 if.app-id = 'com.hnc.Discord'
-run = ['move-node-to-workspace M']
-
-# Task management
-[[on-window-detected]]
-if.app-id ='notion.id'
 run = ['move-node-to-workspace T']
 
-#Spotify
+# Notion Task management
+[[on-window-detected]]
+if.app-id ='notion.id'
+run = ['move-node-to-workspace N']
+
+# Spotify
 [[on-window-detected]]
 if.app-id ='com.spotify.client'
 run = ['move-node-to-workspace S']
