@@ -77,17 +77,16 @@ reload_workspace_icon() {
 if [ "$SENDER" = "aerospace_workspace_change" ]; then
 	if [ "$1" = "$FOCUSED_WORKSPACE" ]; then
 		echo "setting background border color"
-    reload_workspace_icon "$FOCUSED_WORKSPACE"
 		sketchybar --set $NAME label.highlight=true \
 		    icon.highlight=true \
 		    background.border_color=$GREY
+    reload_workspace_icon "$FOCUSED_WORKSPACE"
+    reload_workspace_icon "$PREV_FOCUSED_WORKSPACE"
 	else
 	    sketchybar --set $NAME label.highlight=false \
 		    icon.highlight=false \
 		    background.border_color=$BACKGROUND_2
 	fi
-  reload_workspace_icon "$PREV_FOCUSED_WORKSPACE"
-  reload_workspace_icon "$FOCUSED_WORKSPACE"
 
   # AEROSPACE_FOCUSED_MONITOR=$(aerospace list-monitors --focused | awk '{print $1}')
   # ## focused 된 모니터에 space 상태 보이게 설정
