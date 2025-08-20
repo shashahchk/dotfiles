@@ -55,10 +55,10 @@ exec-on-workspace-change = ['/bin/bash', '-c',
 2 = 'main'
 3 = 'V32UE'
 4 = 'V32UE'
-N = 'V32UE'
+C = 'V32UE'
+M = '^27W'
+N = '^27W'
 S = '^27W'
-T = '^27W'
-V = '^27W'
 
 [gaps]
 inner.horizontal = 8
@@ -125,10 +125,10 @@ alt-1 = 'workspace 1'
 alt-2 = 'workspace 2'
 alt-3 = 'workspace 3'
 alt-4 = 'workspace 4'
-alt-v = 'workspace V'
+alt-c = 'workspace C'
+alt-m = 'workspace M'
 alt-n = 'workspace N'
 alt-s = 'workspace S'
-alt-t = 'workspace T'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-0 = ['move-node-to-workspace 0', 'workspace 0']
@@ -136,10 +136,10 @@ alt-shift-1 = ['move-node-to-workspace 1', 'workspace 1']
 alt-shift-2 = ['move-node-to-workspace 2', 'workspace 2']
 alt-shift-3 = ['move-node-to-workspace 3', 'workspace 3']
 alt-shift-4 = ['move-node-to-workspace 4', 'workspace 4']
-alt-shift-v = ['move-node-to-workspace V', 'workspace V']
+alt-shift-c = ['move-node-to-workspace C', 'workspace C']
+alt-shift-m = ['move-node-to-workspace M', 'workspace M']
 alt-shift-n = ['move-node-to-workspace N', 'workspace N']
 alt-shift-s = ['move-node-to-workspace S', 'workspace S']
-alt-shift-t = ['move-node-to-workspace T', 'workspace T']
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = 'workspace-back-and-forth'
@@ -182,21 +182,21 @@ alt-shift-r = ['exec-and-forget /opt/homebrew/bin/sketchybar --reload']
 if.app-id ='com.google.Chrome'
 run = ['move-node-to-workspace 1']
 
-# VS-Code
+# Code editor
 [[on-window-detected]]
 if.app-id = 'com.microsoft.VSCode'
-run = ['move-node-to-workspace V']
+run = ['move-node-to-workspace C']
 
-# Telegram (Messaging)
+# Messaging
 [[on-window-detected]]
 if.app-id = 'ru.keepcoder.Telegram'
-run = ['move-node-to-workspace T']
+run = ['move-node-to-workspace M']
  
 [[on-window-detected]]
 if.app-id = 'com.hnc.Discord'
-run = ['move-node-to-workspace T']
+run = ['move-node-to-workspace M']
 
-# Notion Task management
+# Notes + Task management
 [[on-window-detected]]
 if.app-id ='notion.id'
 run = ['move-node-to-workspace N']
