@@ -31,7 +31,7 @@ for monitor in $(aerospace list-monitors | awk '{print $1}'); do
       label.padding_right=20
       label.color=$GREY
       label.highlight_color=$WHITE
-      label.font="sketchybar-app-font:Regular:16.0"
+      label.font="sketchybar-app-font:Regular:14.0"
       label.y_offset=-1
       background.color=$BACKGROUND_1
       background.border_color=$BACKGROUND_BORDER_COLOR
@@ -51,17 +51,17 @@ done
 
 SF_FONT="SF Pro"
 
-arrow=(
+arrow_space_manager=(
   icon=􀆊
   icon.font="$SF_FONT:Heavy:16.0"
   padding_left=10
   padding_right=8
   label.drawing=off
   display=active
-  icon.color=$WHITE
+  icon.color=$TRANSPARENT # hidden
   script="$PLUGIN_DIR/space_windows.sh"
 )
 
-sketchybar --add item arrow left               \
-           --set arrow "${arrow[@]}"   \
-           --subscribe arrow aerospace_workspace_change space_windows_change
+sketchybar --add item arrow_space_manager left               \
+           --set arrow_space_manager "${arrow_space_manager[@]}"   \
+           --subscribe arrow_space_manager aerospace_workspace_change space_windows_change
