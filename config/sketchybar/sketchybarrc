@@ -2,16 +2,10 @@
 
 source "$CONFIG_DIR/colors.sh" # Loads all defined colors
 source "$CONFIG_DIR/icons.sh" # Loads all defined icons
-sketchybar --add event aerospace_workspace_change
-ITEM_DIR="$CONFIG_DIR/items" 
-PLUGIN_DIR="$CONFIG_DIR/plugins" 
 
-FONT="SF Pro" # Needs to have Regular, Bold, Semibold, Heavy and Black variants
-PADDINGS=3 # All paddings use this value (icon, label, background)
-
-# aerospace setting
-AEROSPACE_FOCUSED_MONITOR_NO=$(aerospace list-workspaces --focused)
-AEROSPACE_LIST_OF_WINDOWS_IN_FOCUSED_MONITOR=$(aerospace list-windows --workspace $AEROSPACE_FOCUSED_MONITOR_NO | awk -F'|' '{gsub(/^ *| *$/, "", $2); print $2}')
+# REFERENCE --aerospace focus 
+# AEROSPACE_FOCUSED_MONITOR_NO=$(aerospace list-workspaces --focused)
+# AEROSPACE_LIST_OF_WINDOWS_IN_FOCUSED_MONITOR=$(aerospace list-windows --workspace $AEROSPACE_FOCUSED_MONITOR_NO | awk -F'|' '{gsub(/^ *| *$/, "", $2); print $2}')
 
 # Setting up and starting the helper process
 HELPER=git.felix.helper
@@ -39,14 +33,16 @@ bar=(
 
 sketchybar --bar "${bar[@]}"
 
+PADDINGS=3 
 # Setting up default values
 defaults=(
   updates=when_shown
-  icon.font="$FONT:Regular:14.0"
+  icon.font="Hack Nerd Font:Bold:14.0"
+  label.font="Hack Nerd Font:Bold:13.0"
   icon.color=$ICON_COLOR
   icon.padding_left=$PADDINS
   icon.padding_right=$PADDINGS
-  label.font="$FONT:Semibold:13.0"
+  # label.font="$FONT:Semibold:13.0"
   label.color=$LABEL_COLOR
   label.padding_left=$PADDINGS
   label.padding_right=$PADDINGS
@@ -68,7 +64,13 @@ defaults=(
 
 )
 
+ITEM_DIR="$CONFIG_DIR/items" 
+PLUGIN_DIR="$CONFIG_DIR/plugins" 
+
 sketchybar --default "${defaults[@]}"
+
+# Custom events 
+sketchybar --add event aerospace_workspace_change
 
 # Left
 source "$ITEM_DIR/spaces.sh"
@@ -79,6 +81,7 @@ source "$ITEM_DIR/calendar.sh"
 # Right
 source "$ITEM_DIR/battery.sh"
 source "$ITEM_DIR/cpu.sh"
+
 
 sketchybar --hotload on
 
