@@ -60,7 +60,6 @@ defaults=(
   popup.blur_radius=20
   popup.background.shadow.drawing=on
   scroll_texts=on
-
 )
 
 ITEM_DIR="$CONFIG_DIR/items" 

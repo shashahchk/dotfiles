@@ -13,25 +13,25 @@ for monitor in $(aerospace list-monitors | awk '{print $1}'); do
    if echo "$EMPTY_WORKSPACES" | grep -q "$ws" && [ "$ws" != "$FOCUSED_WORKSPACE" ]; then
       display=0
     fi
-    BACKGROUND_BORDER_COLOR=$BACKGROUND_2
+    BACKGROUND_BORDER_COLOR=$TRANSPARENT
     echo "focused aerospace workspace" $(aerospace list-workspaces --focused)
     if [ "$ws" = "$FOCUSED_WORKSPACE" ]; then
-	    BACKGROUND_BORDER_COLOR=$GREY
+	    BACKGROUND_BORDER_COLOR=$BLUE
     fi
     sid=$ws
     space=(
       space="$sid"
       icon="$sid"
-      icon.highlight_color=$RED
+      icon.highlight_color=$WHITE
       icon.padding_left=10
-      icon.padding_right=10
+      icon.padding_right=5
       display=$display
       padding_left=2
       padding_right=2
-      label.padding_right=20
+      label.padding_right=18
       label.color=$GREY
       label.highlight_color=$WHITE
-      label.font="sketchybar-app-font:Regular:14.0"
+      label.font="sketchybar-app-font:Regular:13.0"
       label.y_offset=-1
       background.color=$BACKGROUND_1
       background.border_color=$BACKGROUND_BORDER_COLOR
