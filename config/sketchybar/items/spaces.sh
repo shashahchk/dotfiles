@@ -10,7 +10,7 @@ for monitor in $(aerospace list-monitors | awk '{print $1}'); do
 
    echo "initializing ws $ws on monitor $monitor" >> $LOG_FILE
 
-   if echo "$EMPTY_WORKSPACES" | grep -q "$ws"; then
+   if echo "$EMPTY_WORKSPACES" | grep -q "$ws" && [ "$ws" != "$FOCUSED_WORKSPACE" ]; then
       display=0
     fi
     BACKGROUND_BORDER_COLOR=$BACKGROUND_2

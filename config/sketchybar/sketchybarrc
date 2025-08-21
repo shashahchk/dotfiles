@@ -22,8 +22,6 @@ bar=(
   shadow=off
   position=top
   sticky=on
-  padding_right=10
-  padding_left=10
   y_offset=-5
   margin=-2
   topmost=window
@@ -77,10 +75,10 @@ sketchybar --add event aerospace_workspace_change
 source "$ITEM_DIR/spaces.sh"
 
 # Center
-source "$ITEM_DIR/calendar.sh"
 
 # Right
 source "$ITEM_DIR/battery.sh"
+source "$ITEM_DIR/calendar.sh"
 source "$ITEM_DIR/cpu.sh"
 
 
