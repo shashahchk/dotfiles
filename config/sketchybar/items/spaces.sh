@@ -49,10 +49,11 @@ for monitor in $(aerospace list-monitors | awk '{print $1}'); do
   done
 done
 
+SF_FONT="SF Pro"
 
 arrow=(
   icon=􀆊
-  icon.font="$FONT:Heavy:16.0"
+  icon.font="$SF_FONT:Heavy:16.0"
   padding_left=10
   padding_right=8
   label.drawing=off

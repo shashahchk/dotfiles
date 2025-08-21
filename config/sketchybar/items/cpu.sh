@@ -1,23 +1,22 @@
 #!/bin/bash
 
-cpu_top=(
-  label.font="$FONT:Semibold:7"
-  label=CPU
-  icon.drawing=off
-  width=0
-  padding_right=15
-  y_offset=6
-)
-
 cpu_percent=(
-  label.font="$FONT:Heavy:12"
+  label.font="$FONT:Bold:12"
   label=CPU
-  y_offset=-4
+  # y_offset=-4
   padding_right=15
   width=55
   icon.drawing=off
   update_freq=4
   mach_helper="$HELPER"
+)
+
+cpu_top=(
+  label.font="$FONT:Propo Bold:8"
+  label=CPU
+  icon.drawing=off
+  width=0
+  y_offset=4
 )
 
 cpu_sys=(
@@ -29,6 +28,7 @@ cpu_sys=(
   background.height=30
   background.drawing=on
   background.color=$TRANSPARENT
+  y_offset=2
 )
 
 cpu_user=(
@@ -38,14 +38,14 @@ cpu_user=(
   background.height=30
   background.drawing=on
   background.color=$TRANSPARENT
+  y_offset=2
 )
 
-sketchybar --add item cpu.top right              \
-           --set cpu.top "${cpu_top[@]}"         \
-                                                 \
-           --add item cpu.percent right          \
+ sketchybar --add item cpu.percent right          \
            --set cpu.percent "${cpu_percent[@]}" \
-                                                 \
+\
+           --add item cpu.top right              \
+           --set cpu.top "${cpu_top[@]}"         \
            --add graph cpu.sys right 75          \
            --set cpu.sys "${cpu_sys[@]}"         \
                                                  \

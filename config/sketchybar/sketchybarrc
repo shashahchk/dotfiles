@@ -33,6 +33,7 @@ bar=(
 
 sketchybar --bar "${bar[@]}"
 
+FONT="Hack Nerd Font"
 PADDINGS=3 
 # Setting up default values
 defaults=(
