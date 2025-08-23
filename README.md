@@ -1,1 +1,2 @@
-Temporarily disabled sketchybar due to buggy behaviour
+Aerospace + sketchybar 
+Ghostty with fish
