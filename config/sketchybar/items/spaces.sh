@@ -16,7 +16,7 @@ for monitor in $(aerospace list-monitors | awk '{print $1}'); do
     BACKGROUND_BORDER_COLOR=$TRANSPARENT
     echo "focused aerospace workspace" $(aerospace list-workspaces --focused)
     if [ "$ws" = "$FOCUSED_WORKSPACE" ]; then
-	    BACKGROUND_BORDER_COLOR=$BLUE
+	    BACKGROUND_BORDER_COLOR=$WHITE
     fi
     sid=$ws
     space=(

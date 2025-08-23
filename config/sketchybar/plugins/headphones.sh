@@ -29,8 +29,11 @@ DEVICES="$(system_profiler SPBluetoothDataType -json -detailLevel basic 2>/dev/n
 #   if [ $CASE = 00% ]; then
 #     CASE="-"
 #   fi
+
 if [ "$DEVICES" != "" ]; then
  sketchybar -m --set $NAME label="$DEVICES" 
+else 
+ sketchybar -m --set $NAME label="no bluetooth device" 
 fi
   # sketchybar -m --set $NAME label="$LEFT $CASE $RIGHT"
   # echo "$LEFT $CASE $RIGHT"
