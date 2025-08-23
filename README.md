@@ -1,2 +1,2 @@
-Aerospace + sketchybar 
-Ghostty with fish
+- Aerospace + sketchybar 
+- Ghostty with fish
