@@ -49,21 +49,21 @@ exec-on-workspace-change = ['/bin/bash', '-c',
 #                 In this example, 24 is a default value when there is no match.
 #                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
 #                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
-[workspace-to-monitor-force-assignment]
-0 = 'main'
-1 = 'main'
-2 = 'main'
-3 = 'V32UE'
-4 = 'V32UE'
-C = 'V32UE'
-M = '^27W'
-N = '^27W'
-S = '^27W'
-
+# [workspace-to-monitor-force-assignment]
+# 0 = 'main'
+# 1 = 'main'
+# 2 = 'main'
+# 3 = 'V32UE'
+# 4 = 'V32UE'
+# C = 'V32UE'
+# M = '^27W'
+# N = '^27W'
+# S = '^27W'
+#
 [gaps]
 inner.horizontal = 8
 inner.vertical = 0
-outer.top = [{ monitor."main" = 8}, 8]
+outer.top = [{ monitor."main" = 8 }, { monitor."secondary" = 36}, 8]
 outer.left = 0
 outer.bottom = 0
 outer.right = 0
