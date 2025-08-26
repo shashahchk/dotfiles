@@ -49,21 +49,22 @@ exec-on-workspace-change = ['/bin/bash', '-c',
 #                 In this example, 24 is a default value when there is no match.
 #                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
 #                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
-[workspace-to-monitor-force-assignment]
-0 = 'main'
-1 = 'main'
-2 = 'main'
-3 = 'V32UE'
-4 = 'V32UE'
-C = 'V32UE'
-M = '^27W'
-N = '^27W'
-S = '^27W'
-
+# [workspace-to-monitor-force-assignment]
+# 0 = 'main'
+# 1 = 'main'
+# 2 = 'main'
+# 3 = 'V32UE'
+# 4 = 'V32UE'
+# C = 'V32UE'
+# M = '^27W'
+# N = '^27W'
+# S = '^27W'
+#
 [gaps]
 inner.horizontal = 8
 inner.vertical = 0
-outer.top = [{ monitor."main" = 8}, 8]
+# TODO: remove "secondary" hardcode and maybe use dimensions
+outer.top = [{ monitor."main" = 6}, { monitor."secondary"= 36 } , 8]
 outer.left = 0
 outer.bottom = 0
 outer.right = 0
@@ -125,6 +126,7 @@ alt-1 = 'workspace 1'
 alt-2 = 'workspace 2'
 alt-3 = 'workspace 3'
 alt-4 = 'workspace 4'
+alt-5 = 'workspace 5'
 alt-c = 'workspace C'
 alt-m = 'workspace M'
 alt-n = 'workspace N'
@@ -136,6 +138,7 @@ alt-shift-1 = ['move-node-to-workspace 1', 'workspace 1']
 alt-shift-2 = ['move-node-to-workspace 2', 'workspace 2']
 alt-shift-3 = ['move-node-to-workspace 3', 'workspace 3']
 alt-shift-4 = ['move-node-to-workspace 4', 'workspace 4']
+alt-shift-5 = ['move-node-to-workspace 5', 'workspace 5']
 alt-shift-c = ['move-node-to-workspace C', 'workspace C']
 alt-shift-m = ['move-node-to-workspace M', 'workspace M']
 alt-shift-n = ['move-node-to-workspace N', 'workspace N']

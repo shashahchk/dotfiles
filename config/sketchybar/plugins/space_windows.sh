@@ -3,8 +3,9 @@
 source "$CONFIG_DIR/colors.sh"
 source "$CONFIG_DIR/helpers/constants.sh"
 echo -e "space windows\n" >> $LOG_FILE
-AEROSPACE_FOCUSED_MONITOR=$(aerospace list-monitors --focused | awk '{print $1}')
-AEROSPACE_EMPTY_WORKSPACES=$(aerospace list-workspaces --monitor focused  --empty | awk '{print $1}')
+# AEROSPACE_FOCUSED_MONITOR=$(aerospace list-monitors --focused | awk '{print $1}')
+# TODO: Optimize and not use --all
+AEROSPACE_EMPTY_WORKSPACES=$(aerospace list-workspaces --all focused  --empty | awk '{print $1}')
 
 reload_workspace_icon() {
 	echo "reload workspace icon for workspaces" "$@" >> $LOG_FILE
@@ -37,11 +38,12 @@ if [ "$SENDER" = "aerospace_workspace_change" ]; then
   reload_workspace_icon "$PREV_FOCUSED_WORKSPACE" &
   reload_workspace_icon "$FOCUSED_WORKSPACE" &
 
-  sketchybar --set "space.$FOCUSED_WORKSPACE" display=$AEROSPACE_FOCUSED_MONITOR
+  focused_ws_monitor_id=$(source "$CONFIG_DIR/helpers/get_monitor_for_workspace.sh" "$FOCUSED_WORKSPACE")
 
-fi
-
-if [ "$SENDER" = "space_windows_change" ]; then
+  sketchybar --set "space.$FOCUSED_WORKSPACE" display=$focused_ws_monitor_id
+elif [[ "$SENDER" = "change_workspace_monitor" ]]; then
+  sketchybar --set workspace.$TARGET_WORKSPACE display=$TARGET_MONITOR
+elif [ "$SENDER" = "space_windows_change" ]; then
   echo "space windows change $FOCUSED_WORKSPACE">> $LOG_FILE
   reload_workspace_icon "$FOCUSED_WORKSPACE"
 fi
