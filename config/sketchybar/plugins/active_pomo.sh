@@ -23,7 +23,7 @@ if [ -z "$START_TIME" ] || [ "$START_TIME" = "null" ]; then
   START_TIME=$(<"$TMP_FILE")
 fi
 
-DURATION=5
+DURATION=1800
 NOW=$(date +%s)
 ELAPSED=$(( NOW - START_TIME ))
 REMAINING=$(( DURATION - ELAPSED ))
