@@ -15,16 +15,16 @@ reload_workspace_icon() {
   if [ "$@" != "$FOCUSED_WORKSPACE"  ]; then
     ICON_HIGHLIGHT=false
     LABEL_HIGHLIGHT=false
-    BACKGROUND_BORDER_COLOR=$TRANSPARENT
+    # BACKGROUND_BORDER_COLOR=$TRANSPARENT
   fi
 
-  sketchybar --set "space.$@" icon.highlight=$ICON_HIGHLIGHT background.border_color=$BACKGROUND_BORDER_COLOR label.highlight=$LABEL_HIGHLIGHT
-  apps=$(aerospace list-windows --workspace "$@" | awk -F'|' '{gsub(/^ *| *$/, "", $2); print $2}')
-  icon_strip=$(source "$CONFIG_DIR/helpers/get_space_icons.sh")
-
-  echo "space.$@" >> $LOG_FILE
-
-  sketchybar --set "space.$@" label="$icon_strip" 
+  sketchybar --set "space.$@" icon.highlight=$ICON_HIGHLIGHT  label.highlight=$LABEL_HIGHLIGHT
+  # apps=$(aerospace list-windows --workspace "$@" | awk -F'|' '{gsub(/^ *| *$/, "", $2); print $2}')
+  # icon_strip=$(source "$CONFIG_DIR/helpers/get_space_icons.sh")
+  #
+  # echo "space.$@" >> $LOG_FILE
+  #
+  # sketchybar --set "space.$@" label="$icon_strip" 
 }
 
 FOCUSED_WORKSPACE=$(aerospace list-workspaces --focused | awk '{print $1}')

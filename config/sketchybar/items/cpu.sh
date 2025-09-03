@@ -18,6 +18,7 @@ cpu_top=(
   width=0
   y_offset=4
   padding_right="-$PADDINGS"
+  padding_left="$PADDINGS"
 )
 
 cpu_sys=(

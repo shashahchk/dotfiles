@@ -31,13 +31,13 @@ bar=(
 
 sketchybar --bar "${bar[@]}"
 
-FONT="Hack Nerd Font"
-PADDINGS=3 
+FONT="SF Pro"
+PADDINGS=3
 # Setting up default values
 defaults=(
   updates=when_shown
-  icon.font="Hack Nerd Font:Bold:14.0"
-  label.font="Hack Nerd Font:Bold:13.0"
+  icon.font="$FONT:Semibold:13.0"
+  label.font="$FONT:Semibold:12.0"
   icon.color=$ICON_COLOR
   icon.padding_left=$PADDINS
   icon.padding_right=$PADDINGS
@@ -46,15 +46,15 @@ defaults=(
   label.padding_left=$PADDINGS
   label.padding_right=$PADDINGS
   label.shadow.drawing=on
-  label.shadow.distance=2
+  label.shadow.distance=1
   label.shadow.color=0xff000000
   padding_right=$PADDINGS
   padding_left=$PADDINGS
   background.height=26
-  background.corner_radius=2
+  background.corner_radius=0
   background.border_width=2
   popup.background.border_width=2
-  popup.background.corner_radius=2
+  popup.background.corner_radius=0
   popup.background.border_color=$POPUP_BORDER_COLOR
   popup.background.color=$POPUP_BACKGROUND_COLOR
   popup.blur_radius=20
@@ -76,10 +76,10 @@ source "$ITEM_DIR/spaces.sh"
 # Center
 
 # Right
-source "$ITEM_DIR/pomo.sh"
-source "$ITEM_DIR/headphones.sh"
 source "$ITEM_DIR/battery.sh"
 source "$ITEM_DIR/calendar.sh"
+source "$ITEM_DIR/headphones.sh"
+source "$ITEM_DIR/pomo.sh"
 source "$ITEM_DIR/cpu.sh"
 
 

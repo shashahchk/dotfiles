@@ -23,18 +23,18 @@ for monitor in $(aerospace list-monitors | awk '{print $1}'); do
       space="$sid"
       icon="$sid"
       icon.highlight_color=$BLUE
-      icon.padding_left=10
-      icon.padding_right=5
+      # icon.padding_left=5
+      # icon.padding_right=5
       display=$display
-      padding_left=2
-      padding_right=2
-      label.padding_right=18
+      padding_left=6
+      padding_right=6
+ # label.padding_right=18
       label.color=$GREY
       label.highlight_color=$WHITE
-      label.font="sketchybar-app-font:Regular:13.0"
+      label.font="sketchybar-app-font:Regular:11.0"
       label.y_offset=-1
-      background.color=$BACKGROUND_1
-      background.border_color=$BACKGROUND_BORDER_COLOR
+      # background.color=$BACKGROUND_1
+ # background.border_color=$BACKGROUND_BORDER_COLOR
       script="$PLUGIN_DIR/space.sh $sid"
     )
 
@@ -43,9 +43,9 @@ for monitor in $(aerospace list-monitors | awk '{print $1}'); do
                 --subscribe space.$sid mouse.clicked 
 
 
-    icon_strip=$(source "$CONFIG_DIR/helpers/get_space_icons.sh" "$ws")
+    # icon_strip=$(source "$CONFIG_DIR/helpers/get_space_icons.sh" "$ws")
 
-    sketchybar --set space.$sid label="$icon_strip"
+    # sketchybar --set space.$sid label="$icon_strip"
   done
 done
 
