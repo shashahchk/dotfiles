@@ -1,11 +1,20 @@
 #!/bin/sh
 
+# This custom event (triggered in ~/.config/aerospace/aerospace.toml) fires when
+# a workspace is moved to a different monitor.
+# It will include two variables:
+# - TARGET_MONITOR: The system ID of the monitor the workspace was moved to (NOT aerospace ID)
+# - TARGET_WORKSPACE: The ID of the workspace that is being moved
+sketchybar --add event change_workspace_monitor
+
 FOCUSED_WORKSPACE=$(aerospace list-workspaces --focused)
 source "$CONFIG_DIR/helpers/constants.sh"
 
-for monitor in $(aerospace list-monitors | awk '{print $1}'); do
-  for ws in $(aerospace list-workspaces --monitor $monitor); do
-   EMPTY_WORKSPACES=$(aerospace list-workspaces --monitor $monitor --empty)
+  for ws in $(aerospace list-workspaces --all); do
+   monitor=$(source "$CONFIG_DIR/helpers/get_monitor_for_workspace.sh" "$ws")
+
+   EMPTY_WORKSPACES=$(aerospace list-workspaces --monitor "$monitor" --empty)
+
    display="$monitor"
 
    echo "initializing ws $ws on monitor $monitor" >> $LOG_FILE
@@ -40,13 +49,12 @@ for monitor in $(aerospace list-monitors | awk '{print $1}'); do
 
     sketchybar --add space space.$sid left \
                --set space.$sid "${space[@]}" \
-                --subscribe space.$sid mouse.clicked 
+                --subscribe space.$sid mouse.clicked  
 
 
     # icon_strip=$(source "$CONFIG_DIR/helpers/get_space_icons.sh" "$ws")
 
     # sketchybar --set space.$sid label="$icon_strip"
-  done
 done
 
 SF_FONT="SF Pro"
@@ -64,4 +72,4 @@ arrow_space_manager=(
 
 sketchybar --add item arrow_space_manager left               \
            --set arrow_space_manager "${arrow_space_manager[@]}"   \
-           --subscribe arrow_space_manager aerospace_workspace_change space_windows_change
+           --subscribe arrow_space_manager aerospace_workspace_change space_windows_change change_workspace_monitor

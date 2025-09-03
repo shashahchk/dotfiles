@@ -1,7 +1,11 @@
 #!/bin/bash
 
-DEVICES="$(system_profiler SPBluetoothDataType -json -detailLevel basic 2>/dev/null \
-| jq -r '.SPBluetoothDataType[0].device_connected[] | to_entries[] | "\(.key) \(.value.device_minorType)"')"
+get_devices() {
+	DEVICES="$(system_profiler SPBluetoothDataType -json -detailLevel basic 2>/dev/null \
+	| jq -r '.SPBluetoothDataType[0].device_connected[] | to_entries[] | "\(.key) \(.value.device_minorType)"')"
+
+	echo $DEVICES
+}
 
 # if [ "$DEVICES" = "" ]; then
 #   sketchybar -m --set $NAME drawing=off
@@ -29,11 +33,13 @@ DEVICES="$(system_profiler SPBluetoothDataType -json -detailLevel basic 2>/dev/n
 #   if [ $CASE = 00% ]; then
 #     CASE="-"
 #   fi
+MAIN_HEADSET="shashah enco"
+DEVICES=$(get_devices)
 
 if [ "$DEVICES" != "" ]; then
- sketchybar -m --set $NAME label="$DEVICES" 
+    sketchybar -m --set $NAME label="$DEVICES" click_script="blueutil --disconnect \"$MAIN_HEADSET\""
 else 
- sketchybar -m --set $NAME label="no bluetooth device" 
+    sketchybar -m --set $NAME label="No device"  click_script="blueutil --connect \"$MAIN_HEADSET\""
 fi
   # sketchybar -m --set $NAME label="$LEFT $CASE $RIGHT"
   # echo "$LEFT $CASE $RIGHT"
