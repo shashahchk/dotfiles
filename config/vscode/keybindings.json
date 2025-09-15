@@ -169,7 +169,7 @@
         "when": "editorHasReferenceProvider"
     },
     {
-        "key": "ctrl+n",
+        "key": "ctrl+shift+n",
         "command": "search.action.focusNextSearchResult",
         "when": "hasSearchResult || inSearchEditor"
     },
@@ -179,7 +179,7 @@
         "when": "hasSearchResult || inSearchEditor"
     },
     {
-        "key": "ctrl+p",
+        "key": "ctrl+shift+p",
         "command": "search.action.focusPreviousSearchResult",
         "when": "hasSearchResult || inSearchEditor"
     },
@@ -187,5 +187,19 @@
         "key": "shift+f4",
         "command": "-search.action.focusPreviousSearchResult",
         "when": "hasSearchResult || inSearchEditor"
+    },
+    {
+        "key": "ctrl+r",
+        "command": "-workbench.action.openRecent"
+    },
+    {
+        "key": "shift+cmd+g",
+        "command": "workbench.view.scm",
+        "when": "workbench.scm.active"
+    },
+    {
+        "key": "ctrl+shift+g",
+        "command": "-workbench.view.scm",
+        "when": "workbench.scm.active"
     },
 ]
