@@ -79,7 +79,7 @@ source "$ITEM_DIR/spaces.sh"
 source "$ITEM_DIR/battery.sh"
 source "$ITEM_DIR/calendar.sh"
 source "$ITEM_DIR/headphones.sh"
-source "$ITEM_DIR/pomo.sh"
+source "$ITEM_DIR/init_pomo.sh"
 source "$ITEM_DIR/cpu.sh"
 
 
