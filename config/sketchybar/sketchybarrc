@@ -31,13 +31,13 @@ bar=(
 
 sketchybar --bar "${bar[@]}"
 
-FONT="SF Pro"
+FONT="Hack Nerd Font"
 PADDINGS=3
 # Setting up default values
 defaults=(
   updates=when_shown
-  icon.font="$FONT:Semibold:13.0"
-  label.font="$FONT:Semibold:12.0"
+  icon.font="$FONT:Bold:13.0"
+  label.font="$FONT:Bold:12.0"
   icon.color=$ICON_COLOR
   icon.padding_left=$PADDINS
   icon.padding_right=$PADDINGS

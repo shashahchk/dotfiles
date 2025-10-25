@@ -40,7 +40,7 @@ source "$CONFIG_DIR/helpers/constants.sh"
  # label.padding_right=18
       label.color=$GREY
       label.highlight_color=$WHITE
-      label.font="sketchybar-app-font:Regular:11.0"
+      label.font="$FONT:Regular:11.0"
       label.y_offset=-1
       # background.color=$BACKGROUND_1
  # background.border_color=$BACKGROUND_BORDER_COLOR
@@ -57,11 +57,11 @@ source "$CONFIG_DIR/helpers/constants.sh"
     # sketchybar --set space.$sid label="$icon_strip"
 done
 
-SF_FONT="SF Pro"
+# SF_FONT="SF Pro"
 
 arrow_space_manager=(
   icon=􀆊
-  icon.font="$SF_FONT:Heavy:16.0"
+  icon.font="$FONT:Bold:16.0"
   padding_left=10
   padding_right=8
   label.drawing=off

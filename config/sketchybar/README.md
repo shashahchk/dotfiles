@@ -20,8 +20,13 @@ System Settings -> Desktop & Dock -> Automatically hide and show the menu bar ->
 brew install --cask font-sketchybar-app-font
 ```
 
-
-
+Pomodoro
+1.
+```
+brew install terminal-notifier
+```
+2. Enable notifications from terminal-notifier
+3. (Optional: Only if you're usually on DnD) Configure DnD to allow notifs from terminal-notifier
 
 
 
