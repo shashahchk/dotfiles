@@ -33,7 +33,7 @@ get_devices() {
 #   if [ $CASE = 00% ]; then
 #     CASE="-"
 #   fi
-MAIN_HEADSET="shashah enco"
+MAIN_HEADSET="Obsidian"
 DEVICES=$(get_devices)
 
 if [ "$DEVICES" != "" ]; then
