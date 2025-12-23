@@ -50,21 +50,34 @@ exec-on-workspace-change = ['/bin/bash', '-c',
 #                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
 #                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [workspace-to-monitor-force-assignment]
-0 = ['secondary', 'main']
-1 = ['secondary', 'main']
-2 = ['secondary', 'main']
-3 = ['secondary', 'main']
-4 = ['secondary', 'main']
-C = ['secondary', 'main']
-M = 'main'
-N = 'main'
-S = 'main'
+# 1 indexing, left to right
+0 = ['2', '1']
+1 = ['1', '2']
+2 = ['1', '2']
+3 = ['1', '2']
+4 = ['1', '2']
+5 = ['1', '2']
+C = ['1', '2']
+M = ['2', '1']
+N = ['2', '1']
+S = ['2', '1']
+
+# 0 = ['^built-in retina', 'main']
+# 1 = ['^built-in retina', 'main']
+# 2 = ['^built-in retina', 'main']
+# 3 = ['^built-in retina', 'main']
+# 4 = ['^built-in retina', 'main']
+# 5 = ['^built-in retina', 'main']
+# C = ['^built-in retina', 'main']
+# M = ['main', '^built-in retina']
+# N = ['main', '^built-in retina']
+# S = ['main', '^built-in retina']
 #
 [gaps]
 inner.horizontal = 8
 inner.vertical = 0
 # TODO: remove "secondary" hardcode and maybe use dimensions
-outer.top = [{ monitor."^biult-in retina display$" = 8}, { monitor."DELL.*"= 36 } , 8]
+outer.top = [{ monitor."^built-in retina display$" = 8}, { monitor."DELL.*"= 36 }, { monitor.".*"= 36 } , 8]
 outer.left = 0
 outer.bottom = 0
 outer.right = 0
