@@ -5,4 +5,4 @@ end
 alias vim nvim
 alias v nvim
 set autochdir
-
+zoxide init fish | source
