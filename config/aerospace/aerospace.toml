@@ -61,6 +61,7 @@ C = ['1', '2']
 M = ['2', '1']
 N = ['2', '1']
 S = ['2', '1']
+V = ['1', '2']
 
 # 0 = ['^built-in retina', 'main']
 # 1 = ['^built-in retina', 'main']
@@ -114,7 +115,7 @@ PATH = '/opt/homebrew/bin:/opt/homebrew/sbin:${PATH}'
 
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
-alt-slash = 'layout tiles horizontal vertical'
+# alt-slash = 'layout tiles horizontal vertical'
 alt-comma = 'layout accordion horizontal vertical'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
@@ -134,7 +135,7 @@ alt-shift-minus = 'resize smart -50'
 alt-shift-equal = 'resize smart +50'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
-alt-0 = 'workspace 0'
+alt-backtick = 'workspace 0'
 alt-1 = 'workspace 1'
 alt-2 = 'workspace 2'
 alt-3 = 'workspace 3'
@@ -144,9 +145,10 @@ alt-c = 'workspace C'
 alt-m = 'workspace M'
 alt-n = 'workspace N'
 alt-s = 'workspace S'
+alt-slash = 'workspace V'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
-alt-shift-0 = ['move-node-to-workspace 0', 'workspace 0']
+alt-shift-backtick = ['move-node-to-workspace 0', 'workspace 0']
 alt-shift-1 = ['move-node-to-workspace 1', 'workspace 1']
 alt-shift-2 = ['move-node-to-workspace 2', 'workspace 2']
 alt-shift-3 = ['move-node-to-workspace 3', 'workspace 3']
@@ -156,6 +158,7 @@ alt-shift-c = ['move-node-to-workspace C', 'workspace C']
 alt-shift-m = ['move-node-to-workspace M', 'workspace M']
 alt-shift-n = ['move-node-to-workspace N', 'workspace N']
 alt-shift-s = ['move-node-to-workspace S', 'workspace S']
+alt-shift-slash = ['move-node-to-workspace V', 'workspace V']
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = 'workspace-back-and-forth'
@@ -217,6 +220,10 @@ run = ['move-node-to-workspace M']
 [[on-window-detected]]
 if.app-id = 'com.hnc.Discord'
 run = ['move-node-to-workspace M']
+
+[[on-window-detected]]
+if.app-id = 'com.utmapp.UTM'
+run = ['move-node-to-workspace V']
 
 # Notes + Task management
 [[on-window-detected]]

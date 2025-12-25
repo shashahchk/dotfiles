@@ -1,9 +1,16 @@
 mkdir -p $HOME/.config
 
-ln -s $HOME/dotfiles/config/ghostty              $HOME/.config/ghostty
-ln -s $HOME/dotfiles/config/aerospace $HOME/.config/aerospace
-ln -s $HOME/dotfiles/config/sketchybar $HOME/.config/sketchybar
-ln -s $HOME/dotfiles/config/fish $HOME/.config/fish
-ln -s $HOME/dotfiles/config/nvim $HOME/.config/nvim
-ln -s $HOME/dotfiles/config/vscode $HOME/Library/Application\ Support/Code/User
+# point to the correct .zshrc
+cat > "$HOME/.zshenv" << 'EOF'
+export ZDOTDIR="$HOME/.config/zsh"
+EOF
+
+ln -sfn $HOME/dotfiles/config/ghostty              $HOME/.config/ghostty
+ln -sfn $HOME/dotfiles/config/aerospace $HOME/.config/aerospace
+ln -sfn $HOME/dotfiles/config/sketchybar $HOME/.config/sketchybar
+ln -sfn $HOME/dotfiles/config/fish $HOME/.config/fish
+ln -sfn $HOME/dotfiles/config/nvim $HOME/.config/nvim
+ln -sfn $HOME/dotfiles/config/vscode $HOME/Library/Application\ Support/Code/User
+ln -sfn $HOME/dotfiles/config/zsh $HOME/.config/zsh
+
 
