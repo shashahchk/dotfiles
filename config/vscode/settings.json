@@ -1,124 +1,155 @@
 {
-    "files.autoSave": "afterDelay",
-    "terminal.integrated.cursorStyle": "line",
-    "terminal.integrated.cursorBlinking": true,
-    "terminal.integrated.cursorStyleInactive": "underline",
-    "terminal.integrated.commandsToSkipShell": [
-        // Ensure the toggle sidebar visibility keyboard shortcut skips the shell
-        "workbench.action.toggleSidebarVisibility",
-        // Send quick open's keyboard shortcut to the shell
-        "-workbench.action.quickOpen",
-    ],
-    "editor.fontFamily": "'CaskaydiaCove Nerd Font', 'Cascadia Code'",
-    "editor.fontWeight": 350,
-    "editor.smoothScrolling": true,
-    // "terminal.integrated.smoothScrolling": true,
-    "workbench.startupEditor": "none",
-    "workbench.colorCustomizations": {
-        "statusBarItem.remoteBackground": "#181818",
-        "statusBarItem.remoteForeground": "#cccccc",
-        
-        // Catppuccin Macchiato terminal base16 colors
-        // "terminal.ansiBlack": "#494D64",
-        // "terminal.ansiBlue": "#8AADF4",
-        // "terminal.ansiBrightBlack": "#5B6078",
-        // "terminal.ansiBrightBlue": "#8AADF4",
-        // "terminal.ansiBrightCyan": "#8BD5CA",
-        // "terminal.ansiBrightGreen": "#A6DA95",
-        // "terminal.ansiBrightMagenta": "#F5BDE6",
-        // "terminal.ansiBrightRed": "#ED8796",
-        // "terminal.ansiBrightWhite": "#A5ADCB",
-        // "terminal.ansiBrightYellow": "#EED49F",
-        // "terminal.ansiCyan": "#8BD5CA",
-        // "terminal.ansiGreen": "#A6DA95",
-        // "terminal.ansiMagenta": "#F5BDE6",
-        // "terminal.ansiRed": "#ED8796",
-        // "terminal.ansiWhite": "#B8C0E0",
-        // "terminal.ansiYellow": "#EED49F",
-        // // "terminal.background": "#24273A",
-        // "terminal.foreground": "#CAD3F5",
-        // "terminal.selectionBackground": "#5B6078",
-        // "terminalCursor.foreground": "#F4DBD6",
+  "files.autoSave": "afterDelay",
+  "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.cursorStyleInactive": "underline",
+  "terminal.integrated.commandsToSkipShell": [
+    // Ensure the toggle sidebar visibility keyboard shortcut skips the shell
+    "workbench.action.toggleSidebarVisibility",
+    // Send quick open's keyboard shortcut to the shell
+    "-workbench.action.quickOpen"
+  ],
+  "editor.fontFamily": "'CaskaydiaCove Nerd Font', 'Cascadia Code'",
+  "editor.fontWeight": 350,
+  "editor.smoothScrolling": true,
+  // "terminal.integrated.smoothScrolling": true,
+  "workbench.startupEditor": "none",
+  "workbench.colorCustomizations": {
+    "statusBarItem.remoteBackground": "#181818",
+    "statusBarItem.remoteForeground": "#cccccc"
+
+    // Catppuccin Macchiato terminal base16 colors
+    // "terminal.ansiBlack": "#494D64",
+    // "terminal.ansiBlue": "#8AADF4",
+    // "terminal.ansiBrightBlack": "#5B6078",
+    // "terminal.ansiBrightBlue": "#8AADF4",
+    // "terminal.ansiBrightCyan": "#8BD5CA",
+    // "terminal.ansiBrightGreen": "#A6DA95",
+    // "terminal.ansiBrightMagenta": "#F5BDE6",
+    // "terminal.ansiBrightRed": "#ED8796",
+    // "terminal.ansiBrightWhite": "#A5ADCB",
+    // "terminal.ansiBrightYellow": "#EED49F",
+    // "terminal.ansiCyan": "#8BD5CA",
+    // "terminal.ansiGreen": "#A6DA95",
+    // "terminal.ansiMagenta": "#F5BDE6",
+    // "terminal.ansiRed": "#ED8796",
+    // "terminal.ansiWhite": "#B8C0E0",
+    // "terminal.ansiYellow": "#EED49F",
+    // // "terminal.background": "#24273A",
+    // "terminal.foreground": "#CAD3F5",
+    // "terminal.selectionBackground": "#5B6078",
+    // "terminalCursor.foreground": "#F4DBD6",
+  },
+  "window.customTitleBarVisibility": "windowed",
+  "telemetry.telemetryLevel": "off",
+
+  // "editor.minimap.autohide": true,
+
+  "C_Cpp.default.cppStandard": "c++20",
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
+  "notebook.inlineValues": "auto",
+
+  "vim.easymotion": true,
+  // "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": false,
+  // "vim.hlsearch": true,
+  "vim.highlightedyank.enable": true,
+  "vim.highlightedyank.color": "rgba(250, 240, 170, 0.2)",
+  "vim.leader": "<space>",
+  "vim.handleKeys": {
+    // "<C-f>": false,
+    // "<C-i>": false,
+    // "<C-w>": false,
+    // "<C-b>": false,
+    // "<C-p>": false,
+    "<C-u>": true,
+    "<C-d>": true,
+    "<C-l>": true
+  },
+  "vim.insertModeKeyBindingsNonRecursive": [
+    { "before": ["C-l"], "after": ["<del>"] }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    // Jump to a two-character label like in Helix
+    {
+      "before": ["g", "w"],
+      "after": ["<leader>", "<leader>", "<leader>", "b", "d", "w"]
     },
-    "window.customTitleBarVisibility": "windowed",
-    "telemetry.telemetryLevel": "off",
 
-    // "editor.minimap.autohide": true,
+    // Other better defaults from Helix
+    { "before": ["U"], "after": ["C-r"] },
 
-    "C_Cpp.default.cppStandard": "c++20",
-    "github.copilot.enable": {
-        "*": false,
-        "plaintext": false,
-        "markdown": false,
-        "scminput": false
+    // HJKL remap
+    // { "before": [ "K" ], "commands": [ "lineBreakInsert" ], "silent": true },
+    { "before": ["H"], "after": ["^"] },
+    { "before": ["L"], "after": ["$"] },
+    { "before": ["J"], "after": ["5", "j"] }, // losing line joining, can remap to leader j if needed
+    { "before": ["K"], "after": ["5", "k"] },
+
+    // Misc
+    { "before": ["<CR>"], "after": ["o", "<Esc>"] },
+    // { "before": [ "<leader>", "/" ], "commands": [ ":noh" ] },
+
+    // Use system clipboard on leader yank/paste
+    { "before": ["<leader>", "y"], "after": ["\"", "+", "y"] },
+    { "before": ["Y"], "after": ["y", "$"] },
+    { "before": ["<leader>", "Y"], "after": ["\"", "+", "y", "$"] },
+    { "before": ["<leader>", "p"], "after": ["\"", "+", "p"] },
+    { "before": ["<leader>", "P"], "after": ["\"", "+", "P"] },
+
+    { "before": ["+"], "commands": ["editor.action.formatDocument"] }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    // Go to end of visual selection
+    {
+      "before": ["y"],
+      "after": ["y", "g", "v", "$", "<Esc>"]
     },
-    "notebook.inlineValues": "auto",
-
-    "vim.easymotion": true,
-    // "vim.useSystemClipboard": true,
-    "vim.useCtrlKeys": false,
-    // "vim.hlsearch": true,
-    "vim.highlightedyank.enable": true,
-    "vim.highlightedyank.color": "rgba(250, 240, 170, 0.2)",
-    "vim.leader": "<space>",
-    "vim.handleKeys": {
-        // "<C-f>": false,
-        // "<C-i>": false,
-        // "<C-w>": false,
-        // "<C-b>": false,
-        // "<C-p>": false,
-        "<C-u>": true,
-        "<C-d>": true,
-        "<C-l>": true
+    {
+      "before": ["g", "w"],
+      "after": ["<leader>", "<leader>", "<leader>", "b", "d", "w"]
     },
-    "vim.insertModeKeyBindingsNonRecursive": [
-        { "before": [ "C-l" ], "after": [ "<del>" ] }
-    ],
-    "vim.normalModeKeyBindingsNonRecursive": [
-        // Jump to a two-character label like in Helix
-        { "before": [ "g", "w" ], "after": [ "<leader>", "<leader>", "<leader>", "b", "d", "w" ]},
-        
-        // Other better defaults from Helix
-        { "before": [ "U" ], "after": [ "C-r" ] },
 
-        // HJKL remap
-        // { "before": [ "K" ], "commands": [ "lineBreakInsert" ], "silent": true },
-        { "before": [ "H" ], "after": [ "^" ] },
-        { "before": [ "L" ], "after": [ "$" ] },
-        { "before": [ "J" ], "after": [ "5", "j" ] }, // losing line joining, can remap to leader j if needed
-        { "before": [ "K" ], "after": [ "5", "k" ] },
+    { "before": ["H"], "after": ["^"] },
+    { "before": ["L"], "after": ["$"] },
+    { "before": ["J"], "after": ["5", "j"] },
+    { "before": ["K"], "after": ["5", "k"] },
 
-        // Misc
-        { "before": [ "<CR>" ], "after": [ "o", "<Esc>" ] },
-        // { "before": [ "<leader>", "/" ], "commands": [ ":noh" ] },
-
-        // Use system clipboard on leader yank/paste
-        { "before": [ "<leader>", "y" ], "after": [ "\"", "+", "y" ] },
-        { "before": [ "Y" ], "after": [ "y", "$" ] },
-        { "before": [ "<leader>", "Y" ], "after": [ "\"", "+", "y", "$" ] },
-        { "before": [ "<leader>", "p" ], "after": [ "\"", "+", "p" ] },
-        { "before": [ "<leader>", "P" ], "after": [ "\"", "+", "P" ] },
-
-
-        { "before": [ "+" ], "commands": [ "editor.action.formatDocument" ]},
-    ],
-    "vim.visualModeKeyBindingsNonRecursive": [
-        { "before": [ "g", "w" ], "after": [ "<leader>", "<leader>", "<leader>", "b", "d", "w"]},
-
-        { "before": [ "H" ], "after": [ "^" ] },
-        { "before": [ "L" ], "after": [ "$" ] },
-        { "before": [ "J" ], "after": [ "5", "j" ] }, 
-        { "before": [ "K" ], "after": [ "5", "k" ] },
-
-        { "before": [ "<leader>", "y" ], "after": [ "\"", "+", "y" ] },
-        { "before": [ "Y" ], "after": [ "y", "$" ] },
-        { "before": [ "<leader>", "Y" ], "after": [ "\"", "+", "y", "$" ] },
-        { "before": [ "<leader>", "p" ], "after": [ "\"", "+", "p" ] },
-        { "before": [ "<leader>", "P" ], "after": [ "\"", "+", "P" ] },
-    ],
-    // To improve performance
-    "extensions.experimental.affinity": {
-        "vscodevim.vim": 1
-    },
-    "workbench.activityBar.orientation": "vertical"
+    { "before": ["<leader>", "y"], "after": ["\"", "+", "y"] },
+    { "before": ["Y"], "after": ["y", "$"] },
+    { "before": ["<leader>", "Y"], "after": ["\"", "+", "y", "$"] },
+    { "before": ["<leader>", "p"], "after": ["\"", "+", "p"] },
+    { "before": ["<leader>", "P"], "after": ["\"", "+", "P"] }
+  ],
+  // To improve performance
+  "extensions.experimental.affinity": {
+    "vscodevim.vim": 1
+  },
+  "workbench.activityBar.orientation": "vertical",
+  "chat.instructionsFilesLocations": {
+    ".github/instructions": true,
+    "/var/folders/vz/q04xfhsj4d9b_rdghk6jfhhh0000gn/T/postman-collections-post-response.instructions.md": true,
+    "/var/folders/vz/q04xfhsj4d9b_rdghk6jfhhh0000gn/T/postman-collections-pre-request.instructions.md": true,
+    "/var/folders/vz/q04xfhsj4d9b_rdghk6jfhhh0000gn/T/postman-folder-post-response.instructions.md": true,
+    "/var/folders/vz/q04xfhsj4d9b_rdghk6jfhhh0000gn/T/postman-folder-pre-request.instructions.md": true,
+    "/var/folders/vz/q04xfhsj4d9b_rdghk6jfhhh0000gn/T/postman-http-request-post-response.instructions.md": true,
+    "/var/folders/vz/q04xfhsj4d9b_rdghk6jfhhh0000gn/T/postman-http-request-pre-request.instructions.md": true
+  },
+  "clangd.detectExtensionConflicts": false,
+  "workbench.activityBar.location": "top",
+  "editor.formatOnSave": true,
+  "notebook.formatOnSave.enabled": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "zig.zls.enabled": "on",
+  "[c]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools"
+  },
+  "workbench.statusBar.visible": false,
+  "terminal.integrated.macOptionIsMeta": true
 }
+
