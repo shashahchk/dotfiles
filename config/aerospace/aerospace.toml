@@ -10,7 +10,7 @@ after-login-command = []
 after-startup-command = [
     # JankyBorders has a built-in detection of already running process,
     # so it won't be run twice on AeroSpace restart
-    'exec-and-forget /opt/homebrew/opt/sketchybar/bin/sketchybar',
+    'exec-and-forget $(brew --prefix)/bin/sketchybar',
 ]
 
 
@@ -39,8 +39,10 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 on-focus-changed = ['move-mouse window-lazy-center']
 
 # Sketchybar-- Notify Sketchybar about workspace change
-exec-on-workspace-change = ['/bin/bash', '-c',
-  '/usr/local/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE PREV_FOCUSED_WORKSPACE=$AEROSPACE_PREV_WORKSPACE >> /tmp/aero.log 2>&1; echo "exit_code=$?" >> /tmp/aero.log'
+exec-on-workspace-change = [
+  "/bin/bash",
+  "-lc",
+  "$(brew --prefix)/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE PREV_FOCUSED_WORKSPACE=$AEROSPACE_PREV_WORKSPACE >> /tmp/aero.log 2>&1; echo \"exit_code=$?\" >> /tmp/aero.log"
 ]
 # Gaps between windows (inner-*) and between monitor edges (outer-*).
 # Possible values:
@@ -197,7 +199,7 @@ alt-shift-j = ['join-with down', 'mode main']
 alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
 
-alt-shift-r = ['exec-and-forget /opt/homebrew/bin/sketchybar --reload']
+alt-shift-r = ["exec-and-forget $(brew --prefix)/bin/sketchybar --reload"]
 
 [[on-window-detected]]
 if.app-id ='com.google.Chrome'
