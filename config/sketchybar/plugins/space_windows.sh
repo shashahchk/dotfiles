@@ -8,23 +8,25 @@ echo -e "space windows\n" >> $LOG_FILE
 
 reload_workspace_icon() {
 	echo "reload workspace icon for workspaces" "$@" >> $LOG_FILE
+  BACKGROUND_COLOR=$BACKGROUND_HIGHLIGHTED
   LABEL_HIGHLIGHT=true
   ICON_HIGHLIGHT=true
   BACKGROUND_BORDER_COLOR=$WHITE
 
   if [ "$@" != "$FOCUSED_WORKSPACE"  ]; then
+    BACKGROUND_COLOR=$BACKGROUND_UNHIGHLIGHTED
     ICON_HIGHLIGHT=false
     LABEL_HIGHLIGHT=false
     # BACKGROUND_BORDER_COLOR=$TRANSPARENT
   fi
 
-  sketchybar --set "space.$@" icon.highlight=$ICON_HIGHLIGHT  label.highlight=$LABEL_HIGHLIGHT
+  sketchybar --set "space.$@" icon.highlight=$ICON_HIGHLIGHT  label.highlight=$LABEL_HIGHLIGHT background.color=$BACKGROUND_COLOR
   # apps=$(aerospace list-windows --workspace "$@" | awk -F'|' '{gsub(/^ *| *$/, "", $2); print $2}')
   # icon_strip=$(source "$CONFIG_DIR/helpers/get_space_icons.sh")
   #
   # echo "space.$@" >> $LOG_FILE
   #
-  # sketchybar --set "space.$@" label="$icon_strip" 
+  # sketchybar --set "space.$@" label="$icon_strip"
 }
 
 FOCUSED_WORKSPACE=$(aerospace list-workspaces --focused | awk '{print $1}')
@@ -36,7 +38,7 @@ if [ "$SENDER" = "aerospace_workspace_change" ]; then
   reload_workspace_icon "$PREV_FOCUSED_WORKSPACE" &
   reload_workspace_icon "$FOCUSED_WORKSPACE" &
 
-  focused_ws_monitor_id=$(source "$CONFIG_DIR/helpers/get_monitor_for_workspace.sh" "$FOCUSED_WORKSPACE") 
+  focused_ws_monitor_id=$(source "$CONFIG_DIR/helpers/get_monitor_for_workspace.sh" "$FOCUSED_WORKSPACE")
   #
   DISPLAY=$focused_ws_monitor_id
 
