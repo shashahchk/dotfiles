@@ -1,7 +1,7 @@
 #!/bin/bash
 
 source "$CONFIG_DIR/helpers/constants.sh"
-echo space.sh $'FOCUSED_WORKSPACE': $FOCUSED_WORKSPACE, $'SELECTED': $SELECTED, NAME: $NAME, SENDER: $SENDER  >> $LOG_FILE
+# echo space.sh $'FOCUSED_WORKSPACE': $FOCUSED_WORKSPACE, $'SELECTED': $SELECTED, NAME: $NAME, SENDER: $SENDER  >> $LOG_FILE
 # echo "focused workspace" $FOCUSED_WORKSPACE
 
 set_space_label() {

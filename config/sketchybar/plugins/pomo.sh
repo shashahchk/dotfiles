@@ -40,48 +40,49 @@ update_appearance() {
     local state="$1"
     local start_time="$2"
     local duration="$3"
-
     local label color
 
-    if [ "$state" = "active" ]; then
-        local now=$(date +%s)
-        local elapsed=$(( now - start_time ))
-        local remaining=$(( duration - elapsed ))
+    case $state in 
+	    active)
+		local now=$(date +%s)
+		local elapsed=$(( now - start_time ))
+		local remaining=$(( duration - elapsed ))
 
-        if [ $remaining -le 0 ]; then
-            # Timer finished
-             start_time=$(date +%s)
-             duration=$BREAK_DURATION
-            save_state "break" "$start_time" "$duration"
+		if [ $remaining -le 0 ]; then
+		    # Timer finished
+		     start_time=$(date +%s)
+		     duration=$BREAK_DURATION
+		    save_state "break" "$start_time" "$duration"
 
-            terminal-notifier -title "Pomodoro Complete" -message "Take a break! 🍅" -sound default
-	else
-                label="$(printf "%02d:%02d" $((remaining/60)) $((remaining%60)))"
-		color="0xffffffff"
+		    terminal-notifier -title "Pomodoro Complete" -message "Take a break! 🍅" -sound default
+		else
+			label="$(printf "%02d:%02d" $((remaining/60)) $((remaining%60)))"
+			color="0xffffffff"
 
-		sketchybar --set pomo label="$label" color="$color"
-        fi
-    elif [ "$state" = "break" ]; then
-        local now=$(date +%s)
-        local elapsed=$(( now - start_time ))
-        local remaining=$(( duration - elapsed ))
+			sketchybar --set pomo label="$label" color="$color" updates=on
+		fi
+		;;
+	     break)
+		local now=$(date +%s)
+		local elapsed=$(( now - start_time ))
+		local remaining=$(( duration - elapsed ))
 
-        if [ $remaining -le 0 ]; then
-            save_state "inactive"
+		if [ $remaining -le 0 ]; then
+		    save_state "inactive"
 
-            sketchybar --set pomo label="🍅" updates=off
+		    sketchybar --set pomo label="🍅" updates=off
 
-            terminal-notifier -title "Break over" -message "Get to work!" -sound default
+		    terminal-notifier -title "Break over" -message "Get to work!" -sound default
 
-            return
-	else
-		sketchybar --set pomo label="🍌 $(printf "%02d:%02d" $((remaining/60)) $((remaining%60)))" color="0xffffaaaa"
-        fi
-
-    else
-        sketchybar --set pomo label="🍅" label.color="0xffffffff"
-    fi
-
+		    return
+		else
+			sketchybar --set pomo label="🍌 $(printf "%02d:%02d" $((remaining/60)) $((remaining%60)))" color="0xffffaaaa"
+		fi
+		;;
+	     inactive)
+		sketchybar --set pomo label="🍅" label.color="0xffffffff" updates=off
+		;;
+   esac
  }
 
 # ──────────────────────────────
@@ -95,14 +96,12 @@ case "$SENDER" in
         if [ "$state" = "active" ] || [ "$state" = "break" ]; then
             # Stop timer
             save_state "inactive"
-            sketchybar --set pomo updates=off
             update_appearance "inactive"
         else
 	    # was inactive
              start_time=$(date +%s)
              duration=$DEFAULT_DURATION
             save_state "active" "$start_time" "$duration"
-            sketchybar --set pomo updates=on
             update_appearance "active" "$start_time" "$duration"
         fi
         ;;

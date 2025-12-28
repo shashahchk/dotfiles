@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# TODO: rewrite the whole thing what is this hahahhahah
 get_devices() {
 	DEVICES="$(system_profiler SPBluetoothDataType -json -detailLevel basic 2>/dev/null \
 	| jq -r '.SPBluetoothDataType[0].device_connected[] | to_entries[] | "\(.key) \(.value.device_minorType)"')"
