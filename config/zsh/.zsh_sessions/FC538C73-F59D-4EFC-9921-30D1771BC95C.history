@@ -1,0 +1,245 @@
+cd backdn
+cd backend
+ls
+npm run test-server
+npm run test-server
+cd backend
+npm run test-producer
+lear
+git checkout -b ssm/lang-translate
+git status
+gc -m "feat: add lang translate service, untested"
+gp
+gp -u origin ssm/lang-translate
+ tail -f backend.log
+tail -f backend.log
+tail -f backend.log
+cd backend
+npm run test-producer
+npm run test-producer
+npm run test-producer
+npm run test-producer
+npm run test-producer
+npm run test-producer
+cd "/Users/shashah/Tech projects/livvie/backend" && rm src/moderator-standalone.ts
+cd "/Users/shashah/Tech projects/livvie/backend" && cat package.json | grep moderator
+git add .
+git commit -m "feat: add moderator service"
+git push
+git branch -m ssm/lang-translate ssm/lang-translate-and-moderator
+git remote branch -m ssm/lang-translate ssm/lang-translate-and-moderator
+git remote rename ssm/lang-translate ssm/lang-translate-and-moderator
+git brnach
+git branch -r
+git remote rename origin/ssm/lang-translate origin/ssm/lang-translate-and-moderator
+git remote -v
+git push origin --delete ssm/lang-translate
+git push origin -u ssm/lang-translate-and-moderator
+git add .
+gc -m "feat: add mod"
+cd ..
+gaa
+gc -m "feat: add mod"
+gp
+clear
+./start-dev.sh
+clear
+./start-dev.sh
+clear
+./start-dev.sh
+./start-dev.sh
+./start-dev.sh
+rm "/Users/shashah/Tech projects/livvie/frontend/components/ModeratorPanel.tsx"
+cd backend
+npm run test-producer
+tail -f backend.log
+tail -f backend.log
+gaa
+gc -m "feat: add oauth to allow utube action exec"
+gp
+gc -m "feat: move err logs to separate file"
+gp
+git status
+git add .
+git commit -m "fix: not crash FE on failed moderator action"
+gp
+git status
+gaa
+gc -m "fix: try to fix missing api key"
+gp
+git add .
+git commit -m "refactor: add logs for live chat id"
+gp
+git pusj
+gp
+gaa
+gc -m "feat: call set live chat id endpoint"
+gp
+gaa
+gc -m "feat: pass in channelId"
+gp
+gaa
+gc -m "fix: fix optional channelid"
+gp
+git status
+git log
+ls -latr
+du
+du -sh .
+du --help
+man du
+du -sh node_modules
+du -sh backend
+cd ..
+cd livvie
+man du
+du -sh *
+du -sh * | sort
+du -sh * | sort -h
+sort --help
+cd backend
+npm run test-producer
+ls
+clear
+cd ..
+./start-dev.sh
+cd backend
+npm run test-server
+npm run test-server
+npm run test-producer
+npm run test-producer
+npm run test-server
+tail -f backend.log
+tail -f backend.log
+tail -f backend.log
+clear
+cd frontend
+ls
+npm run dev
+cd ..
+gaa
+gc -m "feat: improve moderator ui, allow auto actions, a bit buggy"
+gp
+clear
+./start-dev.sh
+./start-dev.sh
+./start-dev.sh
+clear
+./start-dev.sh
+./start-dev.sh
+cd frontend
+npm run dev
+clear
+ls
+npm run dev
+git status
+git restore client/src/pages/CreateTrial.jsx
+git checkout -b ssm/cleanup-for-mvp
+git push origin -u ssm/cleanup-for-mvp
+gs
+gp
+zsh -c 'echo $ZDOTDIR; ls -la $ZDOTDIR'\
+
+ls -la ~/dotfiles/config/zsh\
+
+ls -la ~/dotfiles/config/zsh\
+
+ls -la ~/dotfiles/.config/zsh\
+
+z fish
+cd ~/dotfiles/config/fihs
+cd ~/dotfiles/config/fish
+ls
+cd fish
+ls
+clear
+ls
+ls -la
+vim .zshrc
+clear
+cd ..
+cd ..
+y
+yazi
+clear
+fish
+npm run test-server
+npm run test-server
+fish
+npm run dev
+git status
+cd frontend
+npm run dev
+gc -m "feat: improve ui"
+gp
+cd /Users/shashah/Tech\ projects/livvie/frontend && npm run build 2>&1 | head -100
+sleep 15 && echo "Build check complete"
+npm run dev
+cd "/Users/shashah/Tech projects/livvie" && git fetch origin
+cd "/Users/shashah/Tech projects/livvie" && git reset --hard origin/$(git branch --show-current)
+git checkout ssm/lang-translate-and-moderator
+git status
+clear
+npm run dev
+git reset HEAD~1
+git reset HEAD~q
+git reset HEAD~1
+git reset HEAD~1
+git reset --hard HEAD
+git pull
+git pull
+rm /Users/shashah/Tech\ projects/livvie/frontend/app/stream/\[sessionId\]/page.tsx
+z backend
+npm i --save-dev @types/uuid
+gp
+git stash list
+git checkout main
+git merge ssm/lang-translate-and-moderator
+gp
+git stash push -m theme-revert
+ls -lah /Users/shashah/Tech\ projects/livvie/*.log 2>&1 | head -20
+tail -20 /Users/shashah/Tech\ projects/livvie/backend.error.log 2>&1
+git status
+gaa
+gc -m "fix: fix wrong live chat id being used, more than one source of truth for livechat/stream url"
+gp
+cd frontend
+npm run dev
+npm run dev
+git checkout f0b0b1cf23aa831d1e3108e5af29dd4e6b512282
+npm run dev
+git checkout HEAD
+git status
+git checkout f0b0b1cf23aa831d1e3108e5af29dd4e6b512282
+npm run dev
+npm run dev
+git reset --hard
+npm run dev
+git reset HEAD
+git reset origin/HEAD
+npm run dev
+git log
+git commit log
+git logs
+git checkout f0b0b1cf23aa831d1e3108e5af29dd4e6b512282
+npm run dev
+git reset HEAD~1
+npm run dev
+npm run dev
+npm run dev
+git reset --hard HEAD
+git fetch
+git log
+npm run dev
+npm run dev
+npm run dev
+npm run dev
+npm run dev
+npm run dev
+npm run dev
+npm run dev
+npm run dev
+npm run dev
+cd livvie
+ls
+cd backend && npx tsc --noEmit
