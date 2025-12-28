@@ -54,10 +54,17 @@ source "$CONFIG_DIR/helpers/constants.sh"
  # background.border_color=$BACKGROUND_BORDER_COLOR
       script="$PLUGIN_DIR/space.sh $sid"
     )
-
-    sketchybar --add space space.$sid left \
-               --set space.$sid "${space[@]}" \
-                --subscribe space.$sid mouse.clicked
+    if [ "$ws" = "$FOCUSED_WORKSPACE" ]; then
+      sketchybar --add space \
+                   space.$sid left \
+                 --set space.$sid "${space[@]}" \
+                   label.highlight=true icon.highlight=true \
+                  --subscribe space.$sid mouse.clicked
+    else
+      sketchybar --add space space.$sid left \
+                 --set space.$sid "${space[@]}" \
+                  --subscribe space.$sid mouse.clicked
+    fi
 
 
     # icon_strip=$(source "$CONFIG_DIR/helpers/get_space_icons.sh" "$ws")
