@@ -23,33 +23,41 @@ source "$CONFIG_DIR/helpers/constants.sh"
       display=0
     fi
     BACKGROUND_BORDER_COLOR=$TRANSPARENT
+    BACKGROUND_COLOR=$BACKGROUND_UNHIGHLIGHTED
     echo "focused aerospace workspace" $(aerospace list-workspaces --focused)
     if [ "$ws" = "$FOCUSED_WORKSPACE" ]; then
+      BACKGROUND_COLOR=$BACKGROUND_HIGHLIGHTED
 	    BACKGROUND_BORDER_COLOR=$WHITE
     fi
     sid=$ws
     space=(
       space="$sid"
       icon="$sid"
-      icon.highlight_color=$BLUE
-      # icon.padding_left=5
-      # icon.padding_right=5
+      icon.highlight_color=$WHITE
+
+      label.padding_left=0
+      label.padding_right=6
+      icon.padding_left=6
+      icon.padding_right=0
+
+      # icon.padding_right=3
       display=$display
-      padding_left=6
-      padding_right=6
+      padding_left=2
+      padding_right=2
+      # background.padding_left=10
  # label.padding_right=18
       label.color=$GREY
       label.highlight_color=$WHITE
       label.font="$FONT:Regular:11.0"
       label.y_offset=-1
-      # background.color=$BACKGROUND_1
+      background.color=$BACKGROUND_COLOR
  # background.border_color=$BACKGROUND_BORDER_COLOR
       script="$PLUGIN_DIR/space.sh $sid"
     )
 
     sketchybar --add space space.$sid left \
                --set space.$sid "${space[@]}" \
-                --subscribe space.$sid mouse.clicked  
+                --subscribe space.$sid mouse.clicked
 
 
     # icon_strip=$(source "$CONFIG_DIR/helpers/get_space_icons.sh" "$ws")
