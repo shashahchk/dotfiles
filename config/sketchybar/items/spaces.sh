@@ -22,18 +22,18 @@ source "$CONFIG_DIR/helpers/constants.sh"
    if echo "$EMPTY_WORKSPACES" | grep -q "$ws" && [ "$ws" != "$FOCUSED_WORKSPACE" ]; then
       display=0
     fi
-    BACKGROUND_BORDER_COLOR=$TRANSPARENT
-    BACKGROUND_COLOR=$BACKGROUND_UNHIGHLIGHTED
+    # BACKGROUND_BORDER_COLOR=$TRANSPARENT
+    # BACKGROUND_COLOR=$BACKGROUND_UNHIGHLIGHTED
     echo "focused aerospace workspace" $(aerospace list-workspaces --focused)
-    if [ "$ws" = "$FOCUSED_WORKSPACE" ]; then
-      BACKGROUND_COLOR=$BACKGROUND_HIGHLIGHTED
-	    BACKGROUND_BORDER_COLOR=$WHITE
-    fi
+    # if [ "$ws" = "$FOCUSED_WORKSPACE" ]; then
+    #   # BACKGROUND_COLOR=$BACKGROUND_HIGHLIGHTED
+    #  BACKGROUND_BORDER_COLOR=$WHITE
+    # fi
     sid=$ws
     space=(
       space="$sid"
       icon="$sid"
-      icon.highlight_color=$WHITE
+      icon.highlight_color=$BLUE
 
       label.padding_left=0
       label.padding_right=6
@@ -47,10 +47,10 @@ source "$CONFIG_DIR/helpers/constants.sh"
       # background.padding_left=10
  # label.padding_right=18
       label.color=$GREY
-      label.highlight_color=$WHITE
+      label.highlight_color=$BLUE
       label.font="$FONT:Regular:11.0"
       label.y_offset=-1
-      background.color=$BACKGROUND_COLOR
+      # background.color=$BACKGROUND_COLOR
  # background.border_color=$BACKGROUND_BORDER_COLOR
       script="$PLUGIN_DIR/space.sh $sid"
     )
@@ -80,4 +80,4 @@ arrow_space_manager=(
 
 sketchybar --add item arrow_space_manager left               \
            --set arrow_space_manager "${arrow_space_manager[@]}"   \
-           --subscribe arrow_space_manager aerospace_workspace_change space_windows_change change_workspace_monitor
+           --subscribe arrow_space_manager aerospace_workspace_change change_workspace_monitor
