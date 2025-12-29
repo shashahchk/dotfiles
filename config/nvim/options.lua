@@ -21,6 +21,9 @@ opt.softtabstop = 4
 opt.expandtab = true -- convert tabs to spaces
 opt.smartindent = true
 
+-- ===== Fold =====
+opt.foldopen:remove("block")
+
 -- ===== Misc =====
 opt.updatetime = 250
 opt.timeoutlen = 400

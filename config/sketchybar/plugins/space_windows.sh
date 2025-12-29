@@ -5,21 +5,22 @@
 # echo -e "space windows\n" >> $LOG_FILE
 
 # TODO: check whether there's an event when new monitor is connected
-#handle_multi_monitor_update() {
-#  # TODO: move helper here to avoid spawning subshell
-#  focused_ws_monitor_id=$(source "$CONFIG_DIR/helpers/get_monitor_for_workspace.sh" "$FOCUSED_WORKSPACE")
-#  #
-#  DISPLAY=$focused_ws_monitor_id
+handle_display_update() {
+  # TODO: move helper here to avoid spawning subshell
+  focused_ws_monitor_id=$(source "$CONFIG_DIR/helpers/get_monitor_for_workspace.sh" "$FOCUSED_WORKSPACE")
+  #
+  DISPLAY=$focused_ws_monitor_id
 
-#  FOCUSED_MONITOR=$(aerospace list-monitors --mouse --format "%{monitor-appkit-nsscreen-screens-id}")
-#   DISPLAY=${FOCUSED_MONITOR:0:1}
-#  if [ -z "$DISPLAY" ]; then
-#          echo "display not found for ws., ws $FOCUSED_WORKSPACE, monitor_id $focused_ws_monitor_id"
-#	  echo "setting display to $DISPLAY"
-#  fi
-#  sketchybar --set "space.$FOCUSED_WORKSPACE" display=$DISPLAY
+  FOCUSED_MONITOR=$(aerospace list-monitors --mouse --format "%{monitor-appkit-nsscreen-screens-id}")
+   DISPLAY=${FOCUSED_MONITOR:0:1}
+  if [ -z "$DISPLAY" ]; then
+          echo "display not found for ws., ws $FOCUSED_WORKSPACE, monitor_id $focused_ws_monitor_id"
+	  echo "setting display to $DISPLAY"
+    return
+  fi
+  sketchybar --set "space.$FOCUSED_WORKSPACE" display=$DISPLAY
 
-#}
+}
 
 handle_empty_workspaces() {
   if [ -n "$(aerospace list-windows --workspace "$PREV_FOCUSED_WORKSPACE" | head -n1)" ]; then
@@ -38,7 +39,7 @@ case "$SENDER" in
     --set "space.$PREV_FOCUSED_WORKSPACE" icon.highlight=false label.highlight=false
 
     handle_empty_workspaces
-  # handle_multi_monitor_update  &
+    handle_display_update
     ;;
   change_workspace_monitor)
     sketchybar --set workspace.$TARGET_WORKSPACE display=$TARGET_MONITOR
