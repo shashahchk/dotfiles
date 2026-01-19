@@ -11,6 +11,7 @@ ln -sfn $HOME/dotfiles/config/sketchybar $HOME/.config/sketchybar
 ln -sfn $HOME/dotfiles/config/fish $HOME/.config/fish
 ln -sfn $HOME/dotfiles/config/nvim $HOME/.config/nvim
 ln -sfn $HOME/dotfiles/config/vscode $HOME/Library/Application\ Support/Code/User
-ln -sfn $HOME/dotfiles/config/zsh $HOME/.config/zsh
+ln -sfn $HOME/dotfiles/config/zsh/.zprofile $HOME/.config/zsh/.zprofile
+ln -sfn $HOME/dotfiles/config/zsh/.zenv $HOME/.config/zsh/.zenv
 
 

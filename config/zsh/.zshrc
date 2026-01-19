@@ -44,11 +44,11 @@ alias v="nvim $1"
 alias vi=nvim
 alias vim=nvim
 
-source /usr/local/share/powerlevel10k/powerlevel10k.zsh-theme
+source "$HOMEBREW_PREFIX/share/powerlevel10k/powerlevel10k.zsh-theme"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 
@@ -74,4 +74,16 @@ unset __conda_setup
 export PATH="$PATH:/Applications/010 Editor.app/Contents/CmdLine" #ADDED BY 010 EDITOR
 export PATH="$(brew --prefix john-jumbo)/share/john:$PATH"
 
-
+pwnbox() {
+    # Usage: pwnbox [image_name] (default: skysider/pwndbg)
+    IMAGE=${1:-pwntools/pwntools}
+    
+    docker run --rm -it \
+    --platform linux/amd64 \
+    --cap-add=SYS_PTRACE \
+    --security-opt seccomp=unconfined \
+    -v "$(pwd):/pwn" \
+    -w /pwn \
+    --name pwn_session_$(date +%s) \
+    $IMAGE /bin/bash
+}
